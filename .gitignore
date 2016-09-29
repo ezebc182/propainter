@@ -1,0 +1,4 @@
+vendor/*
+default/public/img/*
+!default/public/img/logos
+!default/public/img/favicon

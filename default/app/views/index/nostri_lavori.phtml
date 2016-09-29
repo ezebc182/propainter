@@ -1,0 +1,56 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ezequiel
+ * Date: 15/09/2016
+ * Time: 02:01 PM
+ */ ?>
+
+<?php View::content(); ?>
+
+<div class="section scrollspy" id="galeria">
+    <div class="container">
+        <div class="row">
+
+        </div>
+        <div class="row">
+
+        </div>
+        <div class="row">
+
+        </div>
+        <div class="row">
+
+        </div>
+        <h3>Alcuni esempi dei nostri lavori</h3>
+        <div class="row">
+
+
+<!--            <div class="galeria-filter center-align">-->
+<!---->
+<!--                <a class="waves-effect waves-light light-green darken-1 btn" href="#" data-filter="*">Tutto</a>-->
+<!--                <a class="waves-effect waves-light btn-flat" href="#" data-filter=".instalaciones">Instalaciones</a>-->
+<!--                <a class="waves-effect waves-light btn-flat" href="#" data-filter=".eventos">Eventos</a>-->
+<!--            </div>-->
+        </div>
+
+        <div class="row">
+
+            <div class="galeria-items isotope ">
+
+
+                <?php foreach ($imagenes_galeria as $item): ?>
+                    <div class=" col s12 m6 l4 galeria-item  <?php echo $item->clase; ?>">
+                        <?php echo Html::img($item->path, $item->titulo, array("data-caption" => $item->titulo,
+                            "class" => "materialboxed responsive-img")) ?>
+
+                    </div>
+                <?php endforeach; ?>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

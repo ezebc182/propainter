@@ -1,0 +1,271 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ezequiel
+ * Date: 28/08/2016
+ * Time: 03:44 PM
+ */ ?>
+
+
+<!--  Scripts-->
+
+<?php //echo Tag::js('jquery/jquery.min'); ?>
+<?php //echo Tag::js('jquery/jquery.kumbiaphp'); ?>
+<?php //echo Tag::js('materialize.min');?>
+<?php echo Tag::js("min/plugin-min"); ?>
+<?php echo Tag::js("min/custom-min"); ?>
+
+<?php //echo Tag::js('material.min');?>
+
+<script>
+    PUBLIC_PATH = "<?php echo PUBLIC_PATH;?>";
+</script>
+<script>
+    $(document).ready(function () {
+
+        $('select').material_select();
+
+
+    });
+
+</script>
+<?php if (Router::get("controller") == "index" && Router::get("action") == "index"): ?>
+    <script>
+
+
+        $(document).ready(function () {
+
+            $('.tooltipped').tooltip({html: true});
+
+
+            $('.slider').slider({full_width: true, indicators: false, interval: 7000, height: 815});
+
+
+        });
+
+
+    </script>
+
+<?php endif; ?>
+
+
+
+<?php if (in_array(Router::get("controller"), array("contatto"))): ?>
+    <script>
+        function recaptchaCallback() {
+            $("#btn_submit").removeAttr("disabled");
+        }
+    </script>
+
+<?php endif; ?>
+
+<?php if (Router::get("action") == "nostri_lavori"): ?>
+    <?php echo Tag::js("isotope.pkgd.min"); ?>
+    <script>
+
+        // portfolio filter
+        $(window).load(function () {
+            'use strict';
+            var galeria_selectores = $('.galeria-filter >a');
+            var galeria = $('.galeria-items');
+            galeria.isotope({
+                itemSelector: '.galeria-item',
+                layoutMode: 'masonry'
+
+            });
+
+
+            galeria_selectores.on('click', function () {
+                $(this).siblings().addClass("btn-flat").removeClass("btn light-green darken-1");
+                $(this).addClass("btn light-green darken-1").removeClass("btn-flat ");
+                var selector = $(this).attr('data-filter');
+                galeria.isotope({filter: selector});
+                return false;
+            });
+        });
+        $('.materialboxed').materialbox();
+        //        Materialize.toast(' 650 m² cubiertos',4000);
+        //        Materialize.toast('  15 Consultorios',4200);
+        //        Materialize.toast('   2 aulas para integración escolar',4400);
+        //        Materialize.toast('  1 gimnasio totalmente equipado',4600);
+        //        Materialize.toast('1 sala de usos múltiples',4800);
+        //        Materialize.toast('   aire acondicionado y calefacción central',5000);
+
+
+    </script>
+<?php endif; ?>
+<?php if (Router::get("controller") == "immagini"): ?>
+    <?php if (Router::get("action") == "mostrare"): ?>
+        <script>
+            $(document).ready(function () {
+                $('.modal-trigger').leanModal();
+                $('.materialboxed').materialbox();
+                function farePrincipale(e, img) {
+
+
+                    e.preventDefault();
+
+                    $.ajax({
+                        url: PUBLIC_PATH + "immagini/fare_principale/" + img
+
+                    }).done(function (data) {
+
+                        $(document.body).find("#resultados").append(data);
+
+                    });
+                }
+            });
+
+        </script>
+
+    <?php elseif (Router::get("action") == "aggiungere"): ?>
+        <script>
+            $(function () {
+
+                $("#img-preview").attr('src', PUBLIC_PATH +
+                    '/img/img-not-found.jpg'
+                );
+                $("#file").change(function () {
+
+
+                    checkExtension();
+                    checkFileSize();
+                    makePreview(this);
+
+
+                });
+            });
+            function makePreview(input) {
+
+
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $("#img-preview").attr('src', e.target.result);
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+
+            }
+
+            function checkFileSize() {
+                $.ajax({
+                    url: PUBLIC_PATH + "admin/getMaxFileSize/" + $("input:file")[0].files[0].size
+                }).done(function (data) {
+
+                    if (data.length == 0) {
+                        $("button:submit").attr("disabled", false);
+
+
+                    }
+                    else {
+                        $("button:submit").attr("disabled", true);
+                        $(".file-path").addClass("invalid").removeClass("valid");
+                        $(document.body).find("#resultados").append(data);
+
+                        setTimeout(function () {
+                            $("#resultados").empty();
+
+                        }, 3500);
+                    }
+
+
+                });
+            }
+
+            function checkExtension() {
+
+                $.ajax({
+                    url: PUBLIC_PATH + "admin/getFileType/",
+                    data: {
+                        "fileType": $("input:file")[0].files[0].type
+
+                    },
+                    type: "POST"
+                }).done(function (data) {
+
+                    if (data.length == 0) {
+                        $("button:submit").attr("disabled", false);
+
+
+                    }
+                    else {
+                        $("button:submit").attr("disabled", true);
+                        $(".file-path").addClass("invalid").removeClass("valid");
+                        $(document.body).find("#resultados").append(data);
+
+                        setTimeout(function () {
+                            $("#resultados").empty();
+
+                        }, 3500);
+                    }
+
+                });
+            }
+        </script>
+
+    <?php endif; ?>
+
+<?php endif; ?>
+<?php if (Router::get("controller") == "servizis"): ?>
+    <?php if (Router::get("action") == "mostrare"): ?>
+        <script>
+            $(document).ready(function () {
+                $('.modal-trigger').leanModal();
+
+            });
+        </script>
+    <?php elseif (Router::get("action") == "index"): ?>
+
+        <script>
+            $(document).ready(function () {
+                $('.modal-trigger').leanModal();
+                $('.materialboxed').materialbox();
+                $("#btn-back").on("click", function (e) {
+
+
+                    var servizio_id = $("#hdn_servizio_id").val();
+
+                    $(".servizi").removeClass("hidden");
+                    $("#servizio-" + servizio_id).addClass("hidden");
+                    $("#btn-back").addClass("hidden");
+                });
+            });
+
+
+
+
+            function openServizio(servizio_id, event) {
+                $("#hdn_servizio_id").val(servizio_id);
+                event.preventDefault();
+                $(".servizi").addClass("hidden");
+                $("#servizio-" + servizio_id).removeClass("hidden");
+                $("#btn-back").removeClass("hidden");
+
+
+            }
+
+            //            function abrirModal(servizio_id) {
+            //                $.ajax({
+            //                    url: PUBLIC_PATH + "immagini/mostrare/" + servizio_id
+            //                }).done(function (data) {
+            //                    var imagenes = JSON.parse(data);
+            //
+            //
+            //                    var imgs = "";
+            //                    $.each(imagenes, function (k, v) {
+            //                        imgs ="<div class='col s12 m4 l4'>";
+            //                        imgs += "<img class='responsive-img' src='" + PUBLIC_PATH + v.ruta + '/' + v.nombre + "'>";
+            //                    });
+            //                    $(".servizio-immagini").html("");
+            //                    $(".servizio-immagini").append(imgs);
+            //
+            //                });
+            //
+            //            }
+
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

@@ -1,0 +1,114 @@
+.carousel-content {
+    display: block;
+    background-color: #000;
+    opacity: 0.6 !important;
+    padding: 2%;
+    border-radius: 0;
+}
+
+.card-image.especialidades {
+    height: 200px;
+}
+
+.especialidades-descripcion {
+    padding: 4%;
+
+}
+
+.card-panel.contacto {
+    width: auto;
+    height: 80px;
+
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.promo i {
+    color: #2196F3;
+    font-size: 4rem;
+    display: block;
+}
+
+@media only screen and (min-width: 601px) {
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 80px;
+        line-height: 80px;
+    }
+}
+
+.brand-logo>img {
+    max-width: 75%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 6%;
+
+}
+a#logo-container{
+    max-height: 75px;
+}
+.galeria-item {
+    margin-bottom: 20px;
+    /*width:300px;*/
+    /*height:300px;*/
+    /*overflow: hidden;*/
+}
+
+.default_color {
+    background-color: #212121 !important;
+}
+
+.footer {
+    background-color: #212121 !important;
+}
+
+li a{
+
+    font-variant: small-caps;
+
+}
+
+body{
+    font-variant: small-caps;
+}
+i{
+    font-variant:normal;
+}
+li.active a{
+    color:#ffeb3b;
+    font-weight: bold;
+
+}
+.logo-footer.responsive-img {
+    max-width: 50%;
+    height: auto;
+}
+.chi_siamo#intro{
+    padding-top:5px;
+}
+
+.redonda{
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    height:50%;
+    width:50%;
+    border:solid 1px black;
+}
+.servizio{
+
+    max-height:198px;
+}
+.servizio-card{
+    max-height: 308px;
+}
+.hidden{
+    display: none;
+}

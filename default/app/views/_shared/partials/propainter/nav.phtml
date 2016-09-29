@@ -1,0 +1,99 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ezequiel
+ * Date: 28/08/2016
+ * Time: 03:45 PM
+ */
+
+?>
+
+<div class="navbar-fixed">
+    <nav id="nav_f" class="default_color" role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+
+                <!-- logos pc -->
+
+                <a href="/" id="logo-container" class="brand-logo  show-on-large hide-on-med-and-down">
+
+                    <?php echo Html::img('logos/loguito-.png', "", "class='responsive-img'"); ?>
+
+                </a>
+
+
+                <!-- logos tablets -->
+
+                <div class="show-on-medium-and-down hide-on-large-only">
+
+                    <a href="#" data-activates="nav-mobile" class="button-collapse">
+                        <i class="mdi-navigation-menu"></i></a>
+
+                    <span class="center-align flow-text "><b>PROPAINTER.IT</b>
+                   </span>
+                    <a href="/" id="logo-container" class="right hide-on-small-only">
+                        <?php echo Html::img('logos/loguito-min.png', "", "class='responsive-img'"); ?>
+
+                    </a>
+                </div>
+                <!-- logos moviles -->
+                <?php if (Session::get("tipo_usuario") == "admin"): ?>
+                    <!--                    <ul class="right hide-on-med-and-down">-->
+                    <!--                        <li class="--><?php //echo (isset($menu) && ($menu == 'home')) ? 'active' : '' ?><!--">-->
+                    <!--                            --><?php //echo Html::link("index", "Home"); ?><!--</li>-->
+                    <!--                        <li class="--><?php //echo (isset($menu) && ($menu == 'gestion_puestos')) ? 'active' : '' ?><!--">-->
+                    <!--                            --><?php //echo Html::link("puestos", "Gestión puestos", NULL); ?><!--</li>-->
+                    <!--                        <li class="--><?php //echo (isset($menu) && ($menu == 'gestion_candidatos')) ? 'active' : '' ?><!--">-->
+                    <!--                            --><?php //echo Html::link("candidatos/listar", "Gestión candidatos", NULL); ?><!--</li>-->
+                    <!--                        <li class="--><?php //echo (isset($menu) && ($menu == 'gestion_noticias')) ? 'active' : '' ?><!--">-->
+                    <!--                            --><?php //echo Html::link("noticias", "Gestión noticias", NULL); ?><!--</li>-->
+                    <!---->
+                    <!--                    </ul>-->
+                    <!---->
+                    <!--                    <ul id="nav-mobile" class="side-nav show-on-medium-and-down">-->
+                    <!---->
+                    <!--                        <li class="--><?php //echo (isset($menu) && ($menu == 'home')) ? 'active' : '' ?><!--">-->
+                    <!--                            --><?php //echo Html::link("index", "Home"); ?><!--</li>-->
+                    <!--                        <li class="--><?php //echo (isset($menu) && ($menu == 'gestion_puestos')) ? 'active' : '' ?><!--">-->
+                    <!--                            --><?php //echo Html::link("puestos", "Gestión puestos", NULL); ?><!--</li>-->
+                    <!--                        <li class="--><?php //echo (isset($menu) && ($menu == 'gestion_candidatos')) ? 'active' : '' ?><!--">-->
+                    <!--                            --><?php //echo Html::link("candidatos/listar", "Gestión candidatos", NULL); ?><!--</li>-->
+                    <!--                        <li class="--><?php //echo (isset($menu) && ($menu == 'gestion_noticias')) ? 'active' : '' ?><!--">-->
+                    <!--                            --><?php //echo Html::link("noticias", "Gestión noticias", NULL); ?><!--</li>-->
+                    <!--                    </ul>-->
+                <?php else: ?>
+                    <ul class="right hide-on-med-and-down">
+                        <!--                        <li class="-->
+                        <?php //echo (isset($menu) && ($menu == 'home')) ? 'active' : '' ?><!--">-->
+                        <!--                            --><?php //echo Html::link("index", "Home"); ?><!--</li>-->
+                        <li class="<?php echo (isset($menu) && ($menu == 'chi_siamo')) ? 'active' : '' ?>">
+                            <?php echo Html::link("chi_siamo", "Chi siamo", NULL); ?></li>
+                        <li class="<?php echo (isset($menu) && ($menu == 'servizi')) ? 'active' : '' ?>">
+                            <?php echo Html::link("servizis", "Servizi", NULL); ?></li>
+                        <li class="<?php echo (isset($menu) && ($menu == 'nostri_lavori')) ? 'active' : '' ?>">
+                            <?php echo Html::link("nostri_lavori", "Nostri lavori", NULL); ?></li>
+                        <li class="<?php echo (isset($menu) && ($menu == 'contatto')) ? 'active' : '' ?>">
+                            <?php echo Html::link("contatto", "Contatto", NULL); ?></li>
+
+                    </ul>
+
+                    <ul id="nav-mobile" class="side-nav show-on-medium-and-down">
+                        <!--                        <li class="-->
+                        <?php //echo (isset($menu) && ($menu == 'home')) ? 'active' : '' ?><!--">-->
+                        <!--                            --><?php //echo Html::link("index", "Home"); ?><!--</li>-->
+                        <li class="<?php echo (isset($menu) && ($menu == 'chi_siamo')) ? 'active' : '' ?>">
+                            <?php echo Html::link("chi_siamo", "Chi siamo", NULL); ?></li>
+                        <li class="<?php echo (isset($menu) && ($menu == 'servizi')) ? 'active' : '' ?>">
+                            <?php echo Html::link("servizis", "Servizi", NULL); ?></li>
+                        <li class="<?php echo (isset($menu) && ($menu == 'nostri_lavori')) ? 'active' : '' ?>">
+                            <?php echo Html::link("nostri_lavori", "Nostri lavori", NULL); ?></li>
+                        <li class="<?php echo (isset($menu) && ($menu == 'contatto')) ? 'active' : '' ?>">
+                            <?php echo Html::link("contatto", "Contatto", NULL); ?></li>
+                    </ul>
+
+                <?php endif; ?>
+            </div>
+        </div>
+    </nav>
+</div>
+

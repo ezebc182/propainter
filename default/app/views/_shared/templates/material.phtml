@@ -1,0 +1,39 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ezequiel
+ * Date: 23/08/2016
+ * Time: 06:59 PM
+ */
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <?php echo View::partial("propainter/head", FALSE, array("title" => $title)); ?>
+    <?php echo Html::includeCss(); ?>
+
+</head>
+
+<body id="top" class="scrollspy">
+<header></header>
+<main>
+<!-- Pre Loader -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+
+</div>
+
+<!--Navigation-->
+<?php echo View::partial("propainter/nav", FALSE, array('menu' => $menu)); ?>
+
+    <?php echo View::partial("propainter/scripts"); ?>
+</main>
+<?php echo View::partial("propainter/footer", FALSE, array('tags' => $tags)); ?>
+
+</body>
+</html>
+
