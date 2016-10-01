@@ -6,7 +6,7 @@
  * Date: 02/09/2016
  * Time: 08:01 PM
  */
-class Slides
+class Slides extends ActiveRecord
 {
     public function getSlides()
     {

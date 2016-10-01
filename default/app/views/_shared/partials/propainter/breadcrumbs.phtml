@@ -1,0 +1,23 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ezequiel
+ * Date: 01/10/2016
+ * Time: 03:26 PM
+ */
+?>
+<?php if (isset($breadcrumbs)):?>
+<nav class="breadcrumbs">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <?php foreach ($breadcrumbs as $breadcrumb): ?>
+                <?php echo Html::link($breadcrumb["link"],
+                    $breadcrumb["text"],array("class"=>(isset($breadcrumb["active"])&&
+                        $breadcrumb["active"]==true)?"active breadcrumb":"breadcrumb")); ?> >
+
+            <?php endforeach; ?>
+
+        </div>
+    </div>
+</nav>
+<?php endif;?>

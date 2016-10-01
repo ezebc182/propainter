@@ -1,0 +1,64 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ezequiel
+ * Date: 22/09/2016
+ * Time: 07:12 PM
+ */
+
+?>
+<div class="section scrollspy" id="lavori">
+    <div class="container">
+        <div class="row">
+            <?php View::content() ?>
+        </div>
+
+        <div class="row">
+            <blockquote>
+                <h4>Modificare immagine</h4>
+            </blockquote>
+        </div>
+        <div class="row">
+            <?php echo Form::openMultipart() ?>
+            <div class="col s12 m3 l3">
+                <div class="card-panel center">
+
+                    <?php echo Html::img("lavori/" . Utils::slug($lavoro->nome) . "/" . $archivos->nombre, $archivos->nombre,
+                        "class='  responsive-img'"); ?>
+                </div>
+            </div>
+            <div class="col s12 m9 l9">
+                <div class="row">
+                    <div class="input-field">
+                        <?php echo Form::text("immagini_lavori.nome"); ?>
+                        <label for="immagini_lavori_nome">Nome</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <?php echo Form::textarea("immagini_lavori.descrizione", "class='materialize-textarea'"); ?>
+                        <label for="immagini_lavori_descrizione">Descrizione</label>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="row center-align">
+            <?php echo Html::link("immagini_lavori/mostrare/" . $lavoro->id, "Annullare",
+                "class=' btn-large btn-flat'"); ?>
+
+            <?php echo Form::submit("Modificare", "class='waves-effect waves-light btn-block  
+            btn-large yellow black-text'"); ?>
+        </div>
+
+        <?php echo Form::hidden("immagini_lavori.id", FALSE, $immagini_lavori->id); ?>
+        <?php echo Form::hidden("immagini_lavori.files_id", FALSE, $archivos->id); ?>
+
+        <?php echo Form::close(); ?>
+    </div>
+</div>

@@ -15,7 +15,9 @@ class AdminController extends AppController
         $this->title = "Index";
         Session::set("tipo_usuario", "admin");
     }
+    public function dashboard(){
 
+    }
     public function getMaxFileSize($val)
     {
         if (Input::isAjax()) {

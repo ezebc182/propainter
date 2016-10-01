@@ -29,7 +29,7 @@
 
 <!--Navigation-->
 <?php echo View::partial("propainter/nav", FALSE, array('menu' => $menu)); ?>
-
+<?php echo View::partial("propainter/breadcrumbs",FALSE,isset($breadcrumbs)?array('breadcrumbs'=>$breadcrumbs):null);?>
     <?php echo View::partial("propainter/scripts"); ?>
 </main>
 <?php echo View::partial("propainter/footer", FALSE, array('tags' => $tags)); ?>

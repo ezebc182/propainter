@@ -1,0 +1,50 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ezequiel
+ * Date: 22/09/2016
+ * Time: 07:12 PM
+ */
+
+?>
+<div class="section scrollspy" id="lavori">
+    <div class="container">
+
+        <div class="row">
+            <h3><?php echo $title; ?></h3>
+        </div>
+        <div class="row">
+            <?php View::content()?>
+        </div>
+        <div class="row">
+            <blockquote><h4>Nome e descrizione</h4>
+            </blockquote>
+        </div>
+
+        <div class="row">
+            <?php echo Form::open(); ?>
+            <div class="input-field col s12 m12 l12">
+                <?php echo Form::text("lavori.nome", "class='validate' required"); ?>
+                <label for="disabled">Nome del lavori</label>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m12 l12">
+                <?php echo Form::textarea("lavori.descrizione", "class='materialize-textarea validate' required"); ?>
+                <label for="disabled">Descrizione del lavori</label>
+            </div>
+
+        </div>
+
+
+
+        <div class="row center-align">
+            <a href='<?php echo PUBLIC_PATH.$controller_name."/mostrare"?>' class=" btn-large btn-flat">Annullare</a>
+            <?php echo Form::submit("Aggiungere","class='waves-effect waves-light btn-block  
+            btn-large yellow black-text'"); ?>
+        </div>
+
+        <?php echo Form::close(); ?>
+    </div>
+</div>

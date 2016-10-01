@@ -1,0 +1,122 @@
+<div class="section scrollspy" id="lavori">
+    <div class="container">
+        <div class="row" id="resultados">
+            <?php View::content() ?>
+        </div>
+        <div class="row">
+            <blockquote>
+                <h4><?php echo $title . ": <b>" . $lavoro->nome . "</b>"; ?></h4>
+
+            </blockquote>
+
+        </div>
+        <div class="row">
+            <?php echo Html::link("immagini_lavori/aggiungere/".$lavoro->id,"<i class='material-icons'>add</i>",
+                "class='right btn-floating light-green darken-1' title='Aggiungere immagini'"); ?>
+        </div>
+        <div class="row">
+
+            <?php if (!isset($immagini) || count($immagini) == 0): ?>
+                <p class="flow-text red-text">
+                    Nessuna foto caricata.
+                </p>
+            <?php else: ?>
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th data-field="id">#</th>
+                    <th data-field="nome">Nome</th>
+                    <th data-field="descrizione">Descrizione</th>
+
+                    <th data-field="azioni">Azioni</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <?php $i = 1;
+                foreach ($immagini as $immagine): ?>
+                    <tr>
+                        <td><?php echo "<b>" . $i . "</b>"; ?></td>
+                        <td><?php echo $immagine->nome; ?></td>
+                        <td>
+                            <?php if (strlen($immagine->descrizione) > 130): ?>
+                                <?php echo substr($immagine->descrizione, 0, 129) ?>&nbsp;<strong>...</strong>
+                            <?php else: ?>
+                                <?php echo $immagine->descrizione ?>
+                            <?php endif ?>
+                        </td>
+
+                        <td>
+                            <?php if($immagine->principale==TRUE):?>
+                                <?php echo Html::link("#" ,
+                                    "<i class='material-icons yellow-text'>star</i>",
+                                    "class='btn-floating grey ' title='E la principale'"); ?>
+                            <?php else:?>
+                                <?php echo Html::link("immagini_lavori/fare_principale/".$immagine->id ,
+                                    "<i class='material-icons'>star</i>",
+                                    "class='btn-floating grey ' title='Fare principale'"); ?>
+
+                            <?php endif;?>
+
+                            <?php echo Html::link("immagini_lavori/modificare/" .
+                                $immagine->id, "<i class='material-icons '>edit</i>",
+                                "class='btn-floating blue' title='Modificare'"); ?>
+                            <a href="#modal-<?php echo $immagine->id?>"
+                               class='modal-trigger btn-floating purple' title='Vedere immagine'>
+                                <i class='material-icons'>image</i>
+                            </a>
+
+                            <a href="#modal-eliminare-<?php echo $immagine->id?>"
+                               class='modal-trigger btn-floating red' title='Eliminare immagine'>
+                                <i class='material-icons'>delete</i>
+                            </a>
+
+
+                        </td>
+                    </tr>
+                    <?php $i++;endforeach; ?>
+
+                <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <?php echo Html::link("lavori/mostrare", "Annullare", "class='btn-flat btn-large'") ?>
+        </div>
+    </div>
+
+
+    <?php foreach($immagini as $item):?>
+        <!-- Modal Structure -->
+        <div id="modal-<?php echo $item->id;?>" class="modal">
+            <div class="modal-content">
+                <h4><?php echo $item->nome;?></h4>
+                <div class="center-align">
+                <?php echo Html::img("lavori"."/".Utils::slug($lavoro->nome)."/".$item->nombre,
+                    Utils::slug($item->nombre),"class=' responsive-img'");?>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Vicino</a>
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal-eliminare-<?php echo $item->id;?>" class="modal">
+            <div class="modal-content">
+                <h4>Attenzione</h4>
+                <p class="flow-text">
+                    Siete sicuri di eliminare l' immagine <b><?php echo $item->nome;?></b>?
+                </p>
+            </div>
+            <div class="modal-footer">
+
+
+                <?php echo Html::link("immagini_lavori/eliminare/" .
+                    $item->id, " Eliminare",
+                    "class='btn red' title='Eliminare'");?>
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annullare</a>
+            </div>
+        </div>
+    <?php endforeach;?>
+</div>

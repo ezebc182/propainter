@@ -6,7 +6,7 @@
  * Date: 23/09/2016
  * Time: 12:54 PM
  */
-class ImmaginiController extends AppController
+class ImmaginiServiziController extends AppController
 {
     public function index()
     {
@@ -17,17 +17,20 @@ class ImmaginiController extends AppController
     public function aggiungere($id)
     {
 
-        $this->title = "Aggiungere immagine per il servizio ";
+        $this->title = "Aggiungere immagine per il servizio. ";
         $this->menu = "aggiungere_immagini";
         $this->tags = null;
+        $this->breadcrumbs = array(array("link"=>"immagini_servizi/mostrare/$id",
+            "text"=>"Mostrare"),array("link"=>"immagini_servizi/aggiungere/$id",
+            "text"=>"Aggiungere"));
+
         $this->servizio = (new Servizi())->find($id);
 
-        $this->cantidad = (new ImmaginiServizi())->count_by_sql("
-        select count(id) from immagini_servizi where servizi_id=" . $id . " group by servizi_id");
+        $this->cantidad = (new ImmaginiServizi())->countImmagine($id);
         if (Input::hasPost("immagini_servizi")) {
 
             if (Utils::maxPostCheck()) {
-                $servizi = (new Servizi())->find(Input::post("immagini_servizi.servizi_id"));
+                $servizi = (new Servizi())->find($id);
                 $data = array(
                     "nome_servizi" => $servizi->nome,
                     "nome_immagine" => Input::post("immagini_servizi.nome"),
@@ -37,7 +40,7 @@ class ImmaginiController extends AppController
                     $nombre_archivo = Utils::slug($data["nome_immagine"]);
                     $carpeta = Utils::slug($data["nome_servizi"]);
                     $archivos = new Archivos();
-                    $ruta = 'servizi/' . $carpeta . '/';
+                    $ruta =  "servizi/".$carpeta . '/';
 
 
                     $_archivo = $archivos->uploadArchivo("file", $ruta, "image", $nombre_archivo);
@@ -67,7 +70,7 @@ class ImmaginiController extends AppController
             }
 
 
-            Redirect::toAction("mostrare/" . Input::post("immagini_servizi.servizi_id"));
+            Redirect::toAction("mostrare/" . $id);
         }
     }
 
@@ -118,8 +121,14 @@ class ImmaginiController extends AppController
         $this->title = "Mostrare immagini per il servizio ";
         $this->menu = "mostrare_immagini";
         $this->servizio = (new Servizi())->find($id);
-        $this->immagini = (new ImmaginiServizi())->getImmaginiServizi($id);
+        $this->immagini = (new ImmaginiServizi())->getImmagini($id);
         $this->tags = null;
+        $this->breadcrumbs = array(array("link"=>"admin/dashboard",
+            "text"=>"Dashboard "),
+            array("link"=>"servizis/mostrare","text"=>"Servizi"),
+            array("link"=>null,"text"=>$this->servizio->nome),
+            array("link"=>"immagini_servizi/mostrare/$id",
+            "text"=>"Immagini","active"=>true));
         if (Input::isAjax()) {
             echo json_encode($this->immagini);
             View::select(null, null);
@@ -153,7 +162,7 @@ class ImmaginiController extends AppController
         $immagine = "";
 //        if (Input::isAjax()) {
         $servizio_id = (new ImmaginiServizi())->find($immagine_id)->servizi_id;
-        $immagini = (new ImmaginiServizi())->getImmaginiServizi($servizio_id);
+        $immagini = (new ImmaginiServizi())->getImmagini($servizio_id);
         try {
             if (count($immagini) > 1) {
                 foreach ($immagini as $immagine) {

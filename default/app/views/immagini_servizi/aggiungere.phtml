@@ -1,0 +1,96 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ezequiel
+ * Date: 22/09/2016
+ * Time: 07:12 PM
+ */
+
+?>
+<div class="section scrollspy" id="servizi">
+    <div class="container">
+        <div class="row" id="resultados">
+            <?php View::content() ?>
+        </div>
+
+        <div class="row">
+            <blockquote>
+                <h4>Aggiungere immagine</h4>
+            </blockquote>
+        </div>
+        <div class="row">
+            <?php echo Form::openMultipart() ?>
+            <!--            <div class="input-field col s12 m6 l6">-->
+            <!--                --><?php //echo Form::text("immagini_servizi.nome","required"); ?>
+            <!--                <label for="immagini_servizi_nome">Nome</label>-->
+            <!--            </div>-->
+            <!--            <div class="file-field input-field col s12 m6 l6">-->
+            <!--                <div class="btn">-->
+            <!--                    <span>File</span>-->
+            <!--                    --><?php //echo Form::file("file"); ?>
+            <!--                </div>-->
+            <!--                <div class="file-path-wrapper">-->
+            <!--                    <input class="file-path validate" placeholder="Consentire i file con estensioni .jpg o .png"-->
+            <!--                           type="text">-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--        <div class="row">-->
+            <!--            <div class="input-field col s12 m12 l12">-->
+            <!--                --><?php //echo Form::textarea("immagini_servizi.descrizione", "required class='materialize-textarea'"); ?>
+            <!--                <label for="immagini_servizi_descrizione">Descrizione</label>-->
+            <!--            </div>-->
+            <div class="col s12 m3 l3">
+                <div class="card-panel center">
+
+
+                    <?php echo Html::img("img-not-found.jpg", "", "id='img-preview' class=' responsive-img'"); ?>
+
+                </div>
+            </div>
+            <div class="col s12 m9 l9">
+                <div class="row">
+
+
+                    <div class="file-field input-field col s12 m6 l6">
+                        <div class="btn">
+                            <span>File</span>
+                            <?php echo Form::file("file"); ?>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input id="path" class="file-path validate"
+                                   placeholder="Consentire i file con estensioni .jpg o .png"
+                                   type="text">
+                        </div>
+                    </div>
+
+                    <div class="col s12 m6 l6">
+                        <div class="input-field">
+                            <?php echo Form::text("immagini_servizi.nome","required",
+                                Utils::slug($servizio->nome)."-".($cantidad+1)); ?>
+                            <label for="immagini_servizi_nome">Nome</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <?php echo Form::textarea("immagini_servizi.descrizione", "required class='materialize-textarea'"); ?>
+                        <label for="immagini_servizi_descrizione">Descrizione</label>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row center-align">
+        <?php echo Html::link("immagini_servizi/mostrare/" . $servizio->id, "Annullare", "class=' btn-large btn-flat'"); ?>
+
+        <?php echo Form::submit("Aggiungere", " disabled class=' waves-effect waves-light btn-block  
+            btn-large yellow black-text'"); ?>
+    </div>
+    <?php echo Form::hidden("immagini_servizi.servizi_id", FALSE, $servizio->id); ?>
+    <?php echo Form::close(); ?>
+</div>
+</div>

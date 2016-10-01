@@ -1,0 +1,88 @@
+<div class="section scrollspy" id="lavori">
+    <div class="container">
+        <div class="row">
+            <?php View::content();?>
+        </div>
+        <div class="row">
+            <h3><?php echo $title; ?></h3>
+        </div>
+
+        <div class="row">
+            <?php echo Html::link("lavori/aggiungere", "<i class='material-icons'>add</i>", "class='btn-floating 
+        light-green darken-1 right' title='Aggiungere un lavori'"); ?>
+        </div>
+        <div class="row">
+
+            <?php if (count($lavori) < 0): ?>
+                <p class="flow-text red-text">
+                    Nessun risultato da mostrare</p>
+            <?php else: ?>
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th data-field="id">#</th>
+                    <th data-field="nome">Nome</th>
+                    <th data-field="descrizione">Descrizione</th>
+                    <!--                    <th data-field="numero_di_immagini_lavori">N° immagini_lavori</th>-->
+                    <th data-field="azioni">Azioni</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <?php $i=1;foreach ($lavori as $lavoro): ?>
+                    <tr>
+                        <td><?php echo "<b>".$i."</b>"; ?></td>
+                        <td><?php echo $lavoro->nome; ?></td>
+                        <td>
+                            <?php if (strlen($lavoro->descrizione) > 130): ?>
+                                <?php echo substr($lavoro->descrizione, 0, 129) ?>&nbsp;<strong>...</strong>
+                            <?php else: ?>
+                                <?php echo $lavoro->descrizione ?>
+                            <?php endif ?>
+                        </td>
+                        <!--                            <td>-->
+                        <!--                                --><?php //echo count($immagini_lavori_lavori);?>
+                        <!--                            </td>-->
+                        <td>
+                            <?php echo Html::link("immagini_lavori/mostrare/" .
+                                $lavoro->id, "<i class='material-icons'>queue</i>",
+                                "class='btn-floating purple' title='Aggiungere immagini_lavori'");?>
+                            <?php echo Html::link("lavori/modificare/" .
+                                $lavoro->id, "<i class='material-icons'>edit</i>",
+                                "class='btn-floating blue' title='Modifica'");?>
+                            <a href="#modal-<?php echo $lavoro->id?>"
+                               class='modal-trigger btn-floating red' title='Eliminare lavori?'>
+                                <i class='material-icons'>delete</i>
+                            </a>
+
+                        </td>
+                    </tr>
+                    <?php $i++;endforeach; ?>
+
+                <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <?php foreach($lavori as $item):?>
+        <!-- Modal Structure -->
+        <div id="modal-<?php echo $item->id;?>" class="modal">
+            <div class="modal-content">
+                <h4>Attenzione</h4>
+                <p class="flow-text">
+                    Siete sicuri di eliminare il lavoro <b><?php echo $item->nome;?></b>
+                    e tutte le immagini?
+                </p>
+            </div>
+            <div class="modal-footer">
+
+                <?php echo Html::link("lavori/eliminare/" .
+                    $item->id, " Eliminare",
+                    "class='btn red' title='Eliminare'");?>
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annullare</a>
+            </div>
+        </div>
+    <?php endforeach;?>
+    
+</div>

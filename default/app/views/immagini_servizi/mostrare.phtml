@@ -11,7 +11,7 @@
 
         </div>
         <div class="row">
-            <?php echo Html::link("immagini/aggiungere/".$servizio->id,"<i class='material-icons'>add</i>",
+            <?php echo Html::link("immagini_servizi/aggiungere/".$servizio->id,"<i class='material-icons'>add</i>",
                 "class='right btn-floating light-green darken-1' title='Aggiungere immagini'"); ?>
         </div>
         <div class="row">
@@ -53,13 +53,13 @@
                                     "<i class='material-icons yellow-text'>star</i>",
                                     "class='btn-floating grey ' title='E la principale'"); ?>
                             <?php else:?>
-                                <?php echo Html::link("immagini/fare_principale/".$immagine->id ,
+                                <?php echo Html::link("immagini_servizi/fare_principale/".$immagine->id ,
                                     "<i class='material-icons'>star</i>",
                                     "class='btn-floating grey ' title='Fare principale'"); ?>
 
                             <?php endif;?>
 
-                            <?php echo Html::link("immagini/modificare/" .
+                            <?php echo Html::link("immagini_servizi/modificare/" .
                                 $immagine->id, "<i class='material-icons '>edit</i>",
                                 "class='btn-floating blue' title='Modificare'"); ?>
                             <a href="#modal-<?php echo $immagine->id?>"
@@ -112,7 +112,7 @@
             <div class="modal-footer">
 
 
-                <?php echo Html::link("immagini/eliminare/" .
+                <?php echo Html::link("immagini_servizi/eliminare/" .
                     $item->id, " Eliminare",
                     "class='btn red' title='Eliminare'");?>
                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annullare</a>

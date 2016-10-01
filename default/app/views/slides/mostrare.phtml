@@ -1,5 +1,5 @@
 
-<div class="section scrollspy" id="servizi">
+<div class="section scrollspy" id="slides">
     <div class="container">
         <div class="row">
             <?php View::content();?>
@@ -9,12 +9,12 @@
         </div>
 
         <div class="row">
-            <?php echo Html::link("servizis/aggiungere", "<i class='material-icons'>add</i>", "class='btn-floating 
-        light-green darken-1 right' title='Aggiungere un servizio'"); ?>
+            <?php echo Html::link("slides/aggiungere", "<i class='material-icons'>add</i>", "class='btn-floating 
+        light-green darken-1 right' title='Aggiungere un slide'"); ?>
         </div>
         <div class="row">
 
-            <?php if (count($servizi) < 0): ?>
+            <?php if (count($slides) < 0 || $slides ==null): ?>
             <p class="flow-text red-text">
                 Nessun risultato da mostrare</p>
             <?php else: ?>
@@ -31,29 +31,29 @@
 
                 <tbody>
 
-                    <?php $i=1;foreach ($servizi as $servizio): ?>
+                    <?php $i=1;foreach ($slides as $slide): ?>
                         <tr>
                             <td><?php echo "<b>".$i."</b>"; ?></td>
-                            <td><?php echo $servizio->nome; ?></td>
+                            <td><?php echo $slide->nome; ?></td>
                             <td>
-                                <?php if (strlen($servizio->descrizione) > 130): ?>
-                                    <?php echo substr($servizio->descrizione, 0, 129) ?>&nbsp;<strong>...</strong>
+                                <?php if (strlen($slide->descrizione) > 130): ?>
+                                    <?php echo substr($slide->descrizione, 0, 129) ?>&nbsp;<strong>...</strong>
                                 <?php else: ?>
-                                    <?php echo $servizio->descrizione ?>
+                                    <?php echo $slide->descrizione ?>
                                 <?php endif ?>
                             </td>
 <!--                            <td>-->
-<!--                                --><?php //echo count($immagini_servizi);?>
+<!--                                --><?php //echo count($immagini_slides);?>
 <!--                            </td>-->
                             <td>
-                                <?php echo Html::link("immagini_servizi/mostrare/" .
-                                    $servizio->id, "<i class='material-icons'>queue</i>",
+                                <?php echo Html::link("immagini_slides/mostrare/" .
+                                    $slide->id, "<i class='material-icons'>queue</i>",
                                     "class='btn-floating purple' title='Aggiungere immagini'");?>
-                                <?php echo Html::link("servizis/modificare/" .
-                                    $servizio->id, "<i class='material-icons'>edit</i>",
+                                <?php echo Html::link("slides/modificare/" .
+                                    $slide->id, "<i class='material-icons'>edit</i>",
                                     "class='btn-floating blue' title='Modifica'");?>
-                                <a href="#modal-<?php echo $servizio->id?>"
-                                   class='modal-trigger btn-floating red' title='Eliminare servizio?'>
+                                <a href="#modal-<?php echo $slide->id?>"
+                                   class='modal-trigger btn-floating red' title='Eliminare slide?'>
                                     <i class='material-icons'>delete</i>
                                 </a>
 
@@ -66,23 +66,28 @@
             </table>
         </div>
     </div>
-    <?php foreach($servizi as $item):?>
+    <?php foreach($slides as $item):?>
         <!-- Modal Structure -->
         <div id="modal-<?php echo $item->id;?>" class="modal">
             <div class="modal-content">
                 <h4>Attenzione</h4>
                 <p class="flow-text">
-                    Siete sicuri di eliminare il servizio <b><?php echo $item->nome;?></b>
+                    Siete sicuri di eliminare il slide <b><?php echo $item->nome;?></b>
                     e tutte le immagini?
                 </p>
             </div>
             <div class="modal-footer">
 
-                <?php echo Html::link("servizis/eliminare/" .
-                    $servizio->id, " Eliminare",
+                <?php echo Html::link("slides/eliminare/" .
+                    $slide->id, " Eliminare",
                     "class='btn red' title='Eliminare'");?>
                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annullare</a>
             </div>
         </div>
     <?php endforeach;?>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
 </div>

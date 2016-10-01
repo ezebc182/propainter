@@ -14,7 +14,10 @@ class ServizisController extends AppController
         $this->title = "Servizi";
         $this->tags = null;
         $this->servizi = (new Servizi())->find();
-
+        if (Input::isAjax()) {
+            echo json_encode(array("servizi" => $this->servizi));
+            View::select(null, null);
+        }
 
     }
 
@@ -30,7 +33,7 @@ class ServizisController extends AppController
                 $servizio->nome = Utils::normalizar_oracion(Input::post("servizi.nome"));
                 $servizio->descrizione = Utils::normalizar_oracion(Input::post("servizi.descrizione"));
                 if ($servizio->create()) {
-                    Flash::valid("Il servizio <b>". $servizio->nome."</b> è stata inserita correttamente.");
+                    Flash::valid("Il servizio <b>" . $servizio->nome . "</b> è stata inserita correttamente.");
                     Input::delete("servizis");
                 } else {
                     Flash::warning("Impossibile aggiungere il servizio");
@@ -49,7 +52,8 @@ class ServizisController extends AppController
         $this->title = "Servizi";
         $this->tags = null;
         $this->servizi = (new Servizi())->find();
-
+        $this->breadcrumbs = array(array("link"=>"admin/dashboard",
+            "text"=>"Dashboard"),array("link"=>"servizis/mostrare","text"=>"Servizi"));
     }
 
     public function modificare($id)
@@ -65,9 +69,10 @@ class ServizisController extends AppController
 
                 if ($this->servizi->update()) {
 
-                    if ($this->servizi->renombrarRutaImagenes($this->servizi->id, "img/servizi/" . $this->servizi->nome)) {
-                        if ($this->servizi->renombrarCarpetaImagenes(ABSOLUTE_PATH . "/img/servizi/" . $_old_servizi->nome,
-                                ABSOLUTE_PATH . "/img/servizi/" . $this->servizi->nome) === TRUE
+                    if ($this->servizi->renombrarRutaImagenes($this->servizi->id, "/img/servizi/" . $this->servizi->nome)) {
+                        if ($this->servizi->renombrarCarpetaImagenes(ABSOLUTE_PATH . "img/servizi/" .
+                            Utils::slug($_old_servizi->nome),
+                                ABSOLUTE_PATH . "img/servizi/" . Utils::slug($this->servizi->nome)) === TRUE
                         ) {
                             Flash::valid("Servizio  <b>" .
                                 $this->servizi->nome . "</b> aggiornato");

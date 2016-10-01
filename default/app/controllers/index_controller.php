@@ -6,6 +6,10 @@
  */
 class IndexController extends AppController
 {
+    public function phptest(){
+        echo phpinfo();
+        View::select(null);
+    }
     
     public function index()
     {

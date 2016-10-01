@@ -7,7 +7,7 @@
  */
 
 ?>
-<div class="section scrollspy" id="servizi">
+<div class="section scrollspy" id="lavori">
     <div class="container">
         <div class="row" id="resultados">
             <?php View::content() ?>
@@ -21,8 +21,8 @@
         <div class="row">
             <?php echo Form::openMultipart() ?>
             <!--            <div class="input-field col s12 m6 l6">-->
-            <!--                --><?php //echo Form::text("immagini_servizi.nome","required"); ?>
-            <!--                <label for="immagini_servizi_nome">Nome</label>-->
+            <!--                --><?php //echo Form::text("immagini_lavori.nome","required"); ?>
+            <!--                <label for="immagini_lavori_nome">Nome</label>-->
             <!--            </div>-->
             <!--            <div class="file-field input-field col s12 m6 l6">-->
             <!--                <div class="btn">-->
@@ -37,8 +37,8 @@
             <!--        </div>-->
             <!--        <div class="row">-->
             <!--            <div class="input-field col s12 m12 l12">-->
-            <!--                --><?php //echo Form::textarea("immagini_servizi.descrizione", "required class='materialize-textarea'"); ?>
-            <!--                <label for="immagini_servizi_descrizione">Descrizione</label>-->
+            <!--                --><?php //echo Form::textarea("immagini_lavori.descrizione", "required class='materialize-textarea'"); ?>
+            <!--                <label for="immagini_lavori_descrizione">Descrizione</label>-->
             <!--            </div>-->
             <div class="col s12 m3 l3">
                 <div class="card-panel center">
@@ -66,16 +66,16 @@
 
                     <div class="col s12 m6 l6">
                         <div class="input-field">
-                            <?php echo Form::text("immagini_servizi.nome","required",
-                                Utils::slug($servizio->nome)."-".($cantidad+1)); ?>
-                            <label for="immagini_servizi_nome">Nome</label>
+                            <?php echo Form::text("immagini_lavori.nome","required",
+                                Utils::slug($lavoro->nome)."-".($cantidad+1)); ?>
+                            <label for="immagini_lavori_nome">Nome</label>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field">
-                        <?php echo Form::textarea("immagini_servizi.descrizione", "required class='materialize-textarea'"); ?>
-                        <label for="immagini_servizi_descrizione">Descrizione</label>
+                        <?php echo Form::textarea("immagini_lavori.descrizione", "required class='materialize-textarea'"); ?>
+                        <label for="immagini_lavori_descrizione">Descrizione</label>
                     </div>
                 </div>
             </div>
@@ -85,12 +85,12 @@
     </div>
 
     <div class="row center-align">
-        <?php echo Html::link("immagini/mostrare/" . $servizio->id, "Annullare", "class=' btn-large btn-flat'"); ?>
+        <?php echo Html::link("immagini_lavori/mostrare/" . $lavoro->id, "Annullare", "class=' btn-large btn-flat'"); ?>
 
         <?php echo Form::submit("Aggiungere", " disabled class=' waves-effect waves-light btn-block  
             btn-large yellow black-text'"); ?>
     </div>
-    <?php echo Form::hidden("immagini_servizi.servizi_id", FALSE, $servizio->id); ?>
+    <?php echo Form::hidden("immagini_lavori.lavori_id", FALSE, $lavoro->id); ?>
     <?php echo Form::close(); ?>
 </div>
 </div>
