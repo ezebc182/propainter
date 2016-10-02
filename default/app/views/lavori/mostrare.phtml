@@ -23,7 +23,7 @@
                     <th data-field="id">#</th>
                     <th data-field="nome">Nome</th>
                     <th data-field="descrizione">Descrizione</th>
-                    <!--                    <th data-field="numero_di_immagini_lavori">N° immagini_lavori</th>-->
+                    <th data-field="stato">Stato</th>
                     <th data-field="azioni">Azioni</th>
                 </tr>
                 </thead>
@@ -41,9 +41,7 @@
                                 <?php echo $lavoro->descrizione ?>
                             <?php endif ?>
                         </td>
-                        <!--                            <td>-->
-                        <!--                                --><?php //echo count($immagini_lavori_lavori);?>
-                        <!--                            </td>-->
+                        <td><?php echo (new StatosLavori())->find($lavoro->statos_lavori_id)->nome;?></td>
                         <td>
                             <?php echo Html::link("immagini_lavori/mostrare/" .
                                 $lavoro->id, "<i class='material-icons'>queue</i>",

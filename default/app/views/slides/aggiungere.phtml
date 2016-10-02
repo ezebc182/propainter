@@ -20,26 +20,7 @@
         </div>
         <div class="row">
             <?php echo Form::openMultipart() ?>
-            <!--            <div class="input-field col s12 m6 l6">-->
-            <!--                --><?php //echo Form::text("immagini_slides.nome","required"); ?>
-            <!--                <label for="immagini_slides_nome">Nome</label>-->
-            <!--            </div>-->
-            <!--            <div class="file-field input-field col s12 m6 l6">-->
-            <!--                <div class="btn">-->
-            <!--                    <span>File</span>-->
-            <!--                    --><?php //echo Form::file("file"); ?>
-            <!--                </div>-->
-            <!--                <div class="file-path-wrapper">-->
-            <!--                    <input class="file-path validate" placeholder="Consentire i file con estensioni .jpg o .png"-->
-            <!--                           type="text">-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--        <div class="row">-->
-            <!--            <div class="input-field col s12 m12 l12">-->
-            <!--                --><?php //echo Form::textarea("immagini_slides.descrizione", "required class='materialize-textarea'"); ?>
-            <!--                <label for="immagini_slides_descrizione">Descrizione</label>-->
-            <!--            </div>-->
+
             <div class="col s12 m3 l3">
                 <div class="card-panel center">
 
@@ -66,7 +47,7 @@
 
                     <div class="col s12 m6 l6">
                         <div class="input-field">
-                            <?php echo Form::text("slides.nome","required"); ?>
+                            <?php echo Form::text("slides.nome", "required", "slide-" . ($cantidad + 1)); ?>
                             <label for="slides_titolo">Titolo</label>
                         </div>
                     </div>
@@ -91,4 +72,4 @@
     </div>
     <?php echo Form::close(); ?>
 </div>
-</div>
+

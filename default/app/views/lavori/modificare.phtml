@@ -17,16 +17,22 @@
         <!--        </div>-->
         <div class="row">
             <?php echo Form::open(); ?>
-            <div class="input-field col s12 m12 l12">
+            <div class="input-field col s12 m7 l7">
                 <?php echo Form::text("lavori.nome", "class='validate'"); ?>
-                <label for="disabled">Nome del lavorio</label>
+                <label for="lavori_nome">Nome del lavorio</label>
+            </div>
+            <div class="input-field col s12 m5 l5">
+                <?php echo Form::dbSelect("lavori.statos_lavori_id", "nome", array("statos_lavori", "getStatos"),
+                    "Seleccione","class=''")?>
+                <label for="lavori_stato">Stato del lavoro</label>
+
             </div>
 
         </div>
         <div class="row">
             <div class="input-field col s12 m12 l12">
                 <?php echo Form::textarea("lavori.descrizione", "class='materialize-textarea validate'"); ?>
-                <label for="disabled">Descrizione del lavorio</label>
+                <label for="lavori_descrizione">Descrizione del lavorio</label>
             </div>
 
         </div>

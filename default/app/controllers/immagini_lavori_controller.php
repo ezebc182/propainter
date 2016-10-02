@@ -20,53 +20,69 @@ class ImmaginiLavoriController extends AppController
         $this->title = "Aggiungere immagini per il lavoro. ";
         $this->menu = "aggiungere_immagini";
         $this->tags = null;
-        $this->breadcrumbs = array(array("link"=>"immagini_lavori/mostrare/$id",
-            "text"=>"Mostrare"),array("link"=>"immagini_lavori/aggiungere/$id",
-            "text"=>"Aggiungere"));
+        $this->breadcrumbs = array(array("link" => "immagini_lavori/mostrare/$id",
+            "text" => "Mostrare"), array("link" => "immagini_lavori/aggiungere/$id",
+            "text" => "Aggiungere"));
 
         $this->lavoro = (new Lavori())->find($id);
 
         $this->cantidad = (new ImmaginiLavori())->countImmagine($id);
         if (Input::hasPost("immagini_lavori")) {
+            try {
+                if (Utils::maxPostCheck()) {
+                    $lavori = (new Lavori())->find($id);
+                    $data = array(
+                        "nome_lavori" => $lavori->nome,
+                        "nome_lavoro" => Input::post("immagini_lavori.nome"),
 
-            if (Utils::maxPostCheck()) {
-                $lavori = (new Lavori())->find($id);
-                $data = array(
-                    "nome_lavori" => $lavori->nome,
-                    "nome_lavoro" => Input::post("immagini_lavori.nome"),
-
-                );
-                if ($_FILES["file"]['error'] != UPLOAD_ERR_NO_FILE) {
-                    $nombre_archivo = Utils::slug($data["nome_lavoro"]);
-                    $carpeta = Utils::slug($data["nome_lavori"]);
-                    $archivos = new Archivos();
-                    $ruta =  "lavori/".$carpeta . '/';
-
-
-                    $_archivo = $archivos->uploadArchivo("file", $ruta, "image", $nombre_archivo);
-
-                    if ($_archivo != NULL) {
+                    );
+                    if ($_FILES["file"]['error'] != UPLOAD_ERR_NO_FILE) {
+                        $nombre_archivo = Utils::slug($data["nome_lavoro"]);
+                        $carpeta = Utils::slug($data["nome_lavori"]);
+                        $archivos = new Archivos();
+                        $ruta = "lavori/" . $carpeta . '/';
 
 
-                        $lavoro_lavori = new ImmaginiLavori();
-                        $lavoro_lavori->nome = Input::post("immagini_lavori.nome");
-                        $lavoro_lavori->descrizione = Input::post("immagini_lavori.descrizione");
-                        $lavoro_lavori->lavori_id = $lavori->id;
+                        $_archivo = $archivos->uploadArchivo("file", $ruta, "image", $nombre_archivo);
 
-                        if ($lavoro_lavori->create()) {
-                            $lavoro_lavori->files_id = $_archivo->id;
+                        if ($_archivo != NULL) {
 
 
-                            if ($lavoro_lavori->update()) {
+                            $lavoro_lavori = new ImmaginiLavori();
+                            $lavoro_lavori->nome = Input::post("immagini_lavori.nome");
+                            $lavoro_lavori->descrizione = Input::post("immagini_lavori.descrizione");
+                            $lavoro_lavori->lavori_id = $lavori->id;
 
-                                Flash::valid("l'lavoro <b>" . $lavoro_lavori->nome . "</b> 
+                            if ($lavoro_lavori->create()) {
+                                $lavoro_lavori->files_id = $_archivo->id;
+
+
+                                if ($lavoro_lavori->update()) {
+
+                                    Flash::valid("Il lavoro <b>" . $lavoro_lavori->nome . "</b> 
                                 è stato caricato con successo.");
+                                } else {
+                                    Flash::warning("No se pudo actualizar el registro con el archivo");
+                                }
+                            } else {
+                                Flash::warning("No se pudo crear el archivo");
                             }
+                        } else {
+                            Flash::warning("No se pudo subir la imagen");
                         }
+
+
+                    } else {
+                        Flash::warning("Error al subir el archivo");
                     }
-
-
+                } else {
+                    Flash::warning("La imagen que intenta subir es superior al
+                     tamaño máximo permitido por el servidor.");
                 }
+
+            } catch (KumbiaException $e) {
+                Flash::error("Si è verificato un errore durante la caricata dell'lavoro<b>" .
+                    $lavori->nome . "</b>" . $e->getMessage());
             }
 
 
@@ -123,12 +139,12 @@ class ImmaginiLavoriController extends AppController
         $this->lavoro = (new Lavori())->find($id);
         $this->immagini = (new ImmaginiLavori())->getImmagini($id);
         $this->tags = null;
-        $this->breadcrumbs = array(array("link"=>"admin/dashboard",
-            "text"=>"Dashboard "),
-            array("link"=>"lavori/mostrare","text"=>"lavori"),
-            array("link"=>null,"text"=>$this->lavoro->nome),
-            array("link"=>"immagini_lavori/mostrare/$id",
-                "text"=>"i","active"=>true));
+        $this->breadcrumbs = array(array("link" => "admin/dashboard",
+            "text" => "Dashboard "),
+            array("link" => "lavori/mostrare", "text" => "lavori"),
+            array("link" => null, "text" => $this->lavoro->nome),
+            array("link" => "immagini_lavori/mostrare/$id",
+                "text" => "i", "active" => true));
         if (Input::isAjax()) {
             echo json_encode($this->lavori);
             View::select(null, null);

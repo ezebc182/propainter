@@ -8,23 +8,133 @@
  */
 class SlidesController extends AppController
 {
-    public function index(){}
-    public function mostrare(){
-        $this->title="Slides";
+    public function index()
+    {
+        Redirect::toAction("mostrare");
+    }
+
+    public function mostrare()
+    {
+        $this->title = "Slides";
         $this->menu = "slides";
         $this->tags = null;
         $this->slides = (new Slides())->find();
     }
-    public function aggiungere(){
-        $this->title="Slides";
+
+    public function aggiungere()
+    {
+        $this->title = "Slides";
         $this->menu = "slides";
         $this->tags = null;
-        //$this->slides = (new Slides())->find();
-    }
-    public function modificare($id){
+        $this->cantidad = (new Slides())->count();
+        if (Input::hasPost("slides")) {
+            try {
+
+
+                if (Utils::maxPostCheck()) {
+
+
+                    if ($_FILES["file"]['error'] != UPLOAD_ERR_NO_FILE) {
+                        $nombre_archivo = Utils::slug(Input::post("slides.nome"));
+                        $archivos = new Archivos();
+                        $ruta = "slides/";
+
+
+                        $_archivo = $archivos->uploadArchivo("file", $ruta, "image", $nombre_archivo);
+
+                        if ($_archivo != NULL) {
+                            $slides = (new Slides(Input::post("slides")));
+                            $slides->create();
+                            if ($_archivo->create()) {
+                                $slides->archivos_id = $_archivo->id;
+
+
+                                if ($slides->update()) {
+
+                                    Flash::valid("Il slide <b>" . $slides->nome . "</b> 
+                                è stato caricato con successo.");
+                                } else {
+                                    Flash::warning("No se pudo sincronizar el archivo y la imagen.");
+                                }
+                            } else {
+                                Flash::warning("No se pudo crear el archivo en el servidor.");
+                            }
+                        } else {
+                            Flash::warning("Ocurrió un error al crear el archivo en la base de datos.");
+                        }
+
+
+                    } else {
+                        Flash::warning("Error en la subida del archivo");
+                    }
+                } else {
+                    Flash::error("Error en el tamaño permitido por el server.");
+                }
+
+            } catch (KumbiaException $e) {
+                Flash::error("Error. " . $e->getMessage());
+            }
+
+            Redirect::toAction("mostrare/");
+        }
 
     }
-    public function eliminare($id){
 
+    public function modificare($id)
+    {
+        $this->title = "Modificare slide ";
+        $this->menu = "modificare_slide";
+        $this->tags = null;
+
+        $this->slides = (new Slides())->find($id);
+        $this->archivos = (new Archivos())->find($this->slides->archivos_id);
+
+        if (Input::hasPost("slides")) {
+
+            $slides = (new Slides(Input::post("slides")));
+            try {
+                if ($slides->update()) {
+                    //modificacion logica
+                    $archivo = (new Archivos())->find($slides->archivos_id);
+                    $archivo_old_name = $archivo->nombre;
+                    $archivo->nombre = $slides->nome . "." . $archivo->extension;
+
+                    $archivo->update();
+
+                    //modificacion fisica
+                    rename(ABSOLUTE_PATH . "img/slides/" . $archivo_old_name,
+                        ABSOLUTE_PATH . "img/slides/" . $slides->nome . "." . $archivo->extension
+                    );
+                    Flash::valid("Il slide <b>" . $slides->nome . "</b> è stata modificata");
+                } else {
+                    Flash::warning("Impossibile modificare l'immagine <b>" . $slides->nome . "</b>");
+                }
+            } catch (KumbiaException $e) {
+                Flash::error("Si è verificato un errore durante la modifica del slide<b>" .
+                    $slides->nome . "</b>" . $e->getMessage());
+            }
+
+
+            Redirect::toAction("mostrare/");
+        }
+    }
+
+    public function eliminare($id)
+    {
+        $slides = (new Slides())->find($id);
+        $slide_old = $slides;
+        try {
+
+            if ($slides->eliminare($id)) {
+                Flash::valid("Immagine <b>$slide_old->nome </b> eliminata");
+            } else {
+                Flash::warning("Impossibile eliminare  il slide " . $slide_old->nome);
+
+            }
+        } catch (KumbiaException $e) {
+            Flash::error("Errore al eliminare  il slide " . $slide_old->nome .
+                "<br>" . $e->getMessage());
+        }
+        Redirect::toAction("mostrare/");
     }
 }

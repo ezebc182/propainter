@@ -62,6 +62,7 @@ WHERE L.id = " . $lavoro_id);
             return false;
         }
     }
+    
 
     public function renombrarRutaImagenes($lavoro_id, $new_path)
     {

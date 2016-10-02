@@ -6,20 +6,15 @@
  */
 class IndexController extends AppController
 {
-    public function phptest(){
-        echo phpinfo();
-        View::select(null);
-    }
-    
     public function index()
     {
 
         $this->title = "Home";
         $this->menu = "home";
         $this->tags = (new Tags)->getTags();
-        $this->slides = (new Slides)->getSlides();
+        $this->slides = (new Slides)->find();
 
-     
+
     }
 
     public function chi_siamo()
@@ -30,20 +25,5 @@ class IndexController extends AppController
 
 
     }
-    public function nostri_lavori(){
-        $this->title = "Nostri lavori";
-        $this->menu = "nostri_lavori";
-        $this->tags = (new Tags)->getTags();
-        $this->imagenes_galeria = (new Imagenes())->get_galeria();
-    }
-
-//    public function servizis(){
-//        $this->title = "Servizi";
-//        $this->menu = "servizis";
-//        $this->tags = (new Tags)->getTags();
-//        $this->servizis = (new Servizi())->getServizi();
-//
-//    }
-
 
 }

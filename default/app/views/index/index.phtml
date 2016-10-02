@@ -4,11 +4,13 @@
     <ul class="slides">
         <?php foreach($slides as $slide):?>
         <li>
-           <?php echo Html::img($slide->img,$slide->titulo,"class='responsive-img'");?>
+           <?php echo Html::img("slides/".
+               $slide->nome.".".$slide->getExtension($slide->id)->extension,$slide->nome,"class=' 
+               responsive-img'");?>
 
-            <div class="caption <?php echo $slide->direccion;?> carousel-content ">
-                <h3><?php echo $slide->titulo;?></h3>
-                <h5 class="light grey-text text-lighten-3"><?php echo $slide->mensaje;?></h5>
+            <div class="caption left-align carousel-content ">
+                <h3><?php echo $slide->nome;?></h3>
+                <h5 class="light grey-text text-lighten-3"><?php echo $slide->descrizione;?></h5>
             </div>
         </li>
         <?php endforeach;?>

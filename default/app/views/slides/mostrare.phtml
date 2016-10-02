@@ -24,7 +24,8 @@
                     <th data-field="id">#</th>
                     <th data-field="nome">Nome</th>
                     <th data-field="descrizione">Descrizione</th>
-<!--                    <th data-field="numero_di_immagini">N° immagini</th>-->
+                    <th data-field="pubblicato">Pubblicato</th>
+                    <th data-field="ordine">Ordine</th>
                     <th data-field="azioni">Azioni</th>
                 </tr>
                 </thead>
@@ -42,18 +43,19 @@
                                     <?php echo $slide->descrizione ?>
                                 <?php endif ?>
                             </td>
-<!--                            <td>-->
-<!--                                --><?php //echo count($immagini_slides);?>
-<!--                            </td>-->
+                            <td><?php echo $slide->pubblicato;?></td>
+                            <td><?php echo $slide->ordini;?></td>
                             <td>
-                                <?php echo Html::link("immagini_slides/mostrare/" .
-                                    $slide->id, "<i class='material-icons'>queue</i>",
-                                    "class='btn-floating purple' title='Aggiungere immagini'");?>
+                                <a href="#modal-<?php echo $slide->id?>"
+                                   class='modal-trigger btn-floating purple' title='Vedere immagine'>
+                                    <i class='material-icons'>image</i>
+                                </a>
                                 <?php echo Html::link("slides/modificare/" .
                                     $slide->id, "<i class='material-icons'>edit</i>",
                                     "class='btn-floating blue' title='Modifica'");?>
-                                <a href="#modal-<?php echo $slide->id?>"
-                                   class='modal-trigger btn-floating red' title='Eliminare slide?'>
+
+                                <a href="#modal-eliminare-<?php echo $slide->id?>"
+                                   class='modal-trigger btn-floating red' title='Eliminare immagine'>
                                     <i class='material-icons'>delete</i>
                                 </a>
 
@@ -70,16 +72,29 @@
         <!-- Modal Structure -->
         <div id="modal-<?php echo $item->id;?>" class="modal">
             <div class="modal-content">
+                <h4><?php echo $item->nome;?></h4>
+                <div class="center-align">
+                    <?php echo Html::img("slides/".$item->nome.".".($item->getExtension($item->id)->extension),
+                        $item->nome," class='responsive-img'");?>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Vicino</a>
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal-eliminare-<?php echo $item->id;?>" class="modal">
+            <div class="modal-content">
                 <h4>Attenzione</h4>
                 <p class="flow-text">
-                    Siete sicuri di eliminare il slide <b><?php echo $item->nome;?></b>
-                    e tutte le immagini?
+                    Siete sicuri di eliminare l' immagine <b><?php echo $item->nome;?></b>?
                 </p>
             </div>
             <div class="modal-footer">
 
+
                 <?php echo Html::link("slides/eliminare/" .
-                    $slide->id, " Eliminare",
+                    $item->id, " Eliminare",
                     "class='btn red' title='Eliminare'");?>
                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annullare</a>
             </div>

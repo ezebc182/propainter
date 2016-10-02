@@ -7,37 +7,58 @@
  */
 
 ?>
-<div class="section scrollspy" id="servizi">
+<div class="section scrollspy" id="slides">
     <div class="container">
         <div class="row">
-            <h3><?php echo $title; ?></h3>
+            <?php View::content() ?>
         </div>
-<!--        <div class="row">-->
-<!--            --><?php //View::content() ?>
-<!--        </div>-->
-        <div class="row">
-            <?php echo Form::open(); ?>
-            <div class="input-field col s12 m12 l12">
-                <?php echo Form::text("servizi.nome", "class='validate'"); ?>
-                <label for="disabled">Nome del servizio</label>
-            </div>
 
+        <div class="row">
+            <blockquote>
+                <h4>Modificare slide</h4>
+            </blockquote>
         </div>
         <div class="row">
-            <div class="input-field col s12 m12 l12">
-                <?php echo Form::textarea("servizi.descrizione", "class='materialize-textarea validate'"); ?>
-                <label for="disabled">Descrizione del servizio</label>
+            <?php echo Form::openMultipart() ?>
+            <div class="col s12 m3 l3">
+                <div class="card-panel center">
+
+                    <?php echo Html::img("slides/" . $archivos->nombre, $archivos->nombre,
+                        "class='  materialboxed responsive-img'"); ?>
+                </div>
+            </div>
+            <div class="col s12 m9 l9">
+                <div class="row">
+                    <div class="input-field">
+                        <?php echo Form::text("slides.nome"); ?>
+                        <label for="slides_nome">Nome</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <?php echo Form::textarea("slides.descrizione", "class='materialize-textarea'"); ?>
+                        <label for="slides_descrizione">Descrizione</label>
+                    </div>
+                </div>
+
+
             </div>
 
+
         </div>
+
+
         <div class="row center-align">
-            <a href='<?php echo PUBLIC_PATH . $controller_name . "/mostrare" ?>'
-               class=" btn-large btn-flat">Annullare</a>
+            <?php echo Html::link("slides/mostrare/", "Annullare",
+                "class=' btn-large btn-flat'"); ?>
+
             <?php echo Form::submit("Modificare", "class='waves-effect waves-light btn-block  
             btn-large yellow black-text'"); ?>
         </div>
-        <?php echo Form::hidden("servizi.id", FALSE, $servizi->id); ?>
-        <?php echo Form::close(); ?>
 
+        <?php echo Form::hidden("slides.id", FALSE, $slides->id); ?>
+        <?php echo Form::hidden("slides.archivos_id", FALSE, $archivos->id); ?>
+
+        <?php echo Form::close(); ?>
     </div>
 </div>

@@ -178,11 +178,11 @@
 
 
             }
-            $(function(){
-                $.each($(".card-title"),function(){
+            $(function () {
+                $.each($(".card-title"), function () {
 
-                    if($(this).html().length>=40){
-                        $(this).css('font-size','21px');
+                    if ($(this).html().length >= 40) {
+                        $(this).css('font-size', '21px');
                     }
 
                 });
@@ -193,8 +193,23 @@
         </script>
     <?php endif; ?>
 <?php endif; ?>
-<?php if (in_array(Router::get("controller"), array("immagini_lavori", "immagini_servizi"))): ?>
+<?php if (in_array(Router::get("controller"), array("slides", "immagini_lavori", "immagini_servizi"))): ?>
+    <?php if (Router::get("action") == "modificare"): ?>
+        <script>
+            $(document).ready(function () {
+                $('.materialboxed').materialbox();
+            });
 
+        </script>
+    <?php endif; ?>
+    <?php if (Router::get("action") == "mostrare"): ?>
+        <script>
+            $(document).ready(function () {
+                $('.modal-trigger').leanModal();
+            });
+
+        </script>
+    <?php endif; ?>
     <?php if (Router::get("action") == "aggiungere"): ?>
         <script>
             $(function () {
