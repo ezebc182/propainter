@@ -27,6 +27,23 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <blockquote>
+                <h4>Prodotti che utilizziamo</h4>
+            </blockquote>
+        </div>
+        <div class="row">
+
+            <?php foreach($prodotti as $prodotto):?>
+            <div class="card-panel col s12 m3 l3 ">
+                <a href="<?php echo $prodotto->url;?>" target="_blank" title="Visitare il sitio">
+                <?php echo Html::img("prodotti/".Utils::slug($prodotto->nome)."/".
+                    $prodotto->getImmagini($prodotto->id)->nombre,$prodotto->nome,
+                    "class=' center-align responsive-img'");?>
+                </a>
+            </div>
+            <?php endforeach;?>
+        </div>
 
 
     </div>

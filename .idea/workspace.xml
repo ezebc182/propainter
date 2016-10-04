@@ -22,15 +22,104 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="admin.phtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin.phtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/default/app/views/_shared/templates/admin.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="43" column="83" selection-start-line="43" selection-start-column="83" selection-end-line="43" selection-end-column="83" />
+            <state relative-caret-position="482">
+              <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
               <folding>
                 <element signature="e#6#93#0#PHP" expanded="true" />
-                <marker date="1475541079979" expanded="true" signature="2893:2917" placeholder="..." />
-                <marker date="1475541079979" expanded="true" signature="3109:3139" placeholder="..." />
+                <marker date="1475543844982" expanded="true" signature="2893:2917" placeholder="..." />
+                <marker date="1475543844982" expanded="true" signature="3109:3139" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login_controller.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/app/controllers/login_controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/app/views/_shared/templates/login.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+              <folding>
+                <marker date="1475545252098" expanded="true" signature="763:845" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="estilos.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/public/css/estilos.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chi_siamo.phtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/default/app/views/index/chi_siamo.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="526">
+              <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="prodotti.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/app/models/prodotti.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+              <folding>
+                <marker date="1475547451044" expanded="true" signature="221:325" placeholder="SELECT A.ext... archivos" />
+                <marker date="1475547451044" expanded="true" signature="438:557" placeholder="SELECT A.rut... archivos" />
+                <marker date="1475547451044" expanded="true" signature="1913:1998" placeholder="SELECT A.* F... archivos" />
+                <marker date="1475547451044" expanded="true" signature="2281:2311" placeholder="select count... prodotti" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index_controller.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/app/controllers/index_controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nav.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/app/views/_shared/partials/propainter/nav.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="768">
+              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utenti.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/app/models/utenti.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="666">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding>
+                <marker date="1475545131749" expanded="true" signature="199:219" placeholder="SELECT * FRO... utenti" />
               </folding>
             </state>
           </provider>
@@ -44,9 +133,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/default/app/views/immagini_lavori/aggiungere.phtml" />
         <option value="$PROJECT_DIR$/default/app/config/routes.ini" />
-        <option value="$PROJECT_DIR$/default/app/views/_shared/partials/propainter/nav.phtml" />
         <option value="$PROJECT_DIR$/default/app/views/lavori/index.phtml" />
         <option value="$PROJECT_DIR$/default/app/views/servizis/index.phtml" />
         <option value="$PROJECT_DIR$/default/app/views/slides/aggiungere.phtml" />
@@ -58,7 +145,6 @@
         <option value="$PROJECT_DIR$/default/app/views/contatto/index.phtml" />
         <option value="$PROJECT_DIR$/default/app/models/correo.php" />
         <option value="$PROJECT_DIR$/default/public/css/material-design-icons.css" />
-        <option value="$PROJECT_DIR$/default/public/css/estilos.css" />
         <option value="$PROJECT_DIR$/default/app/views/slides/mostrare.phtml" />
         <option value="$PROJECT_DIR$/default/app/views/immagini_lavori/mostrare.phtml" />
         <option value="$PROJECT_DIR$/default/app/views/immagini_servizi/mostrare.phtml" />
@@ -77,24 +163,27 @@
         <option value="$PROJECT_DIR$/default/app/views/lavori/mostrare.phtml" />
         <option value="$PROJECT_DIR$/default/app/models/uttenti.php" />
         <option value="$PROJECT_DIR$/default/app/views/_shared/templates/material.phtml" />
-        <option value="$PROJECT_DIR$/default/app/controllers/index_controller.php" />
         <option value="$PROJECT_DIR$/default/app/views/_shared/partials/propainter/footer.phtml" />
         <option value="$PROJECT_DIR$/default/app/models/slides.php" />
         <option value="$PROJECT_DIR$/default/app/views/admin/dashboard.phtml" />
         <option value="$PROJECT_DIR$/default/app/views/_shared/partials/propainter/scripts.phtml" />
-        <option value="$PROJECT_DIR$/default/app/views/prodotti/aggiungere.phtml" />
         <option value="$PROJECT_DIR$/default/app/views/prodotti/mostrare.phtml" />
-        <option value="$PROJECT_DIR$/default/app/views/prodotti/modificare.phtml" />
-        <option value="$PROJECT_DIR$/default/app/models/prodotti.php" />
         <option value="$PROJECT_DIR$/default/app/controllers/prodotti_controller.php" />
         <option value="$PROJECT_DIR$/default/app/controllers/auth_controller.php" />
         <option value="$PROJECT_DIR$/default/app/libs/app_controller.php" />
         <option value="$PROJECT_DIR$/default/app/controllers/admin_controller.php" />
         <option value="$PROJECT_DIR$/default/app/views/login/index.phtml" />
+        <option value="$PROJECT_DIR$/default/app/controllers/login_controller.php" />
+        <option value="$PROJECT_DIR$/default/app/views/prodotti/aggiungere.phtml" />
+        <option value="$PROJECT_DIR$/default/app/views/prodotti/modificare.phtml" />
+        <option value="$PROJECT_DIR$/default/app/views/_shared/templates/admin.phtml" />
         <option value="$PROJECT_DIR$/default/app/models/utenti.php" />
         <option value="$PROJECT_DIR$/default/app/views/_shared/templates/login.phtml" />
-        <option value="$PROJECT_DIR$/default/app/controllers/login_controller.php" />
-        <option value="$PROJECT_DIR$/default/app/views/_shared/templates/admin.phtml" />
+        <option value="$PROJECT_DIR$/default/app/views/_shared/partials/propainter/nav.phtml" />
+        <option value="$PROJECT_DIR$/default/public/css/estilos.css" />
+        <option value="$PROJECT_DIR$/default/app/controllers/index_controller.php" />
+        <option value="$PROJECT_DIR$/default/app/models/prodotti.php" />
+        <option value="$PROJECT_DIR$/default/app/views/index/chi_siamo.phtml" />
       </list>
     </option>
   </component>
@@ -214,6 +303,58 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="slides" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="propainter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="propainter" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="propainter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="propainter" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prodotti" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -330,7 +471,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_284a859b0e6deba86edc624fef1e4db2aa8241a9/git-cmd.exe" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="admin.phtml&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/templates/admin.phtml&#10;admin&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/admin_controller.php&#10;login_con&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/login_controller.php&#10;index_con&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/index_controller.php&#10;app_c&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/libs/app_controller.php&#10;dashb&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/admin/dashboard.phtml&#10;login/&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/templates/login.phtml&#10;utenti&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/models/utenti.php&#10;renombr&#9;null&#9;null&#10;immagini_con&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_lavori_controller.php&#10;prodotti/mostrare&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/prodotti/mostrare.phtml&#10;prodotti/modi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/prodotti/modificare.phtml&#10;prodotti/aggi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/prodotti/aggiungere.phtml&#10;scripts&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/partials/propainter/scripts.phtml&#10;prodotti/mos&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/prodotti/mostrare.phtml&#10;prodotti.php&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/models/prodotti.php&#10;dash&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/admin/dashboard.phtml&#10;material&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/templates/material.phtml&#10;footer&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/partials/propainter/footer.phtml&#10;index/inde&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/index/index.phtml&#10;login_c&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/login_controller.php&#10;login&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/templates/login.phtml&#10;lavori/index&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/lavori/index.phtml&#10;lavori/mostrar&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/lavori/mostrare.phtml&#10;lavori_con&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/lavori_controller.php&#10;lavori_controller&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_lavori_controller.php&#10;lavori&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_lavori_controller.php&#10;lavori/aggiungere&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/lavori/aggiungere.phtml&#10;immagini_lavori_controller&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_lavori_controller.php&#10;immagini_lavori/modifi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/immagini_lavori/modificare.phtml&#10;immagini_lavori/modifica&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/immagini_lavori/modificare.phtml&#10;lavori/modifi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/lavori/modificare.phtml&#10;lavori_cont&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/lavori_controller.php&#10;immagini_servizi/modifi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/immagini_servizi/modificare.phtml&#10;immagini_ser&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_servizi_controller.php&#10;servizis_con&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/servizis_controller.php&#10;servizis/mod&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/servizis/modificare.phtml&#10;slides/modifi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/slides/modificare.phtml&#10;slides_c&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/slides_controller.php&#10;immagini_lavori&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_lavori_controller.php&#10;immagini_servizi_con&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_servizi_controller.php&#10;bread&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/partials/propainter/breadcrumbs.phtml&#10;immagini_lavori_c&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_lavori_controller.php&#10;immagini_servizi/mos&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/immagini_servizi/mostrare.phtml&#10;immagini_lavori/mos&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/immagini_lavori/mostrare.phtml&#10;slides/mostrare&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/slides/mostrare.phtml&#10;estilos&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/public/css/estilos.css&#10;mos&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/servizis/mostrare.phtml&#10;dashboard/&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/admin/dashboard.phtml&#10;immagini&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_servizi_controller.php" />
+    <property name="SearchEverywhereHistoryKey" value="prodotti&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/models/prodotti.php&#10;index_c&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/index_controller.php&#10;index/chi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/index/chi_siamo.phtml&#10;nav&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/partials/propainter/nav.phtml&#10;esti&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/public/css/estilos.css&#10;utenti&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/models/utenti.php&#10;login.ph&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/templates/login.phtml&#10;login&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/login_controller.php&#10;admin&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/templates/admin.phtml&#10;pro&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/prodotti_controller.php&#10;prodotti/aggiungere&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/prodotti/aggiungere.phtml&#10;admin.phtml&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/templates/admin.phtml&#10;login_con&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/login_controller.php&#10;index_con&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/index_controller.php&#10;app_c&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/libs/app_controller.php&#10;dashb&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/admin/dashboard.phtml&#10;login/&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/templates/login.phtml&#10;renombr&#9;null&#9;null&#10;immagini_con&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_lavori_controller.php&#10;prodotti/mostrare&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/prodotti/mostrare.phtml&#10;prodotti/modi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/prodotti/modificare.phtml&#10;prodotti/aggi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/prodotti/aggiungere.phtml&#10;scripts&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/partials/propainter/scripts.phtml&#10;prodotti/mos&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/prodotti/mostrare.phtml&#10;prodotti.php&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/models/prodotti.php&#10;dash&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/admin/dashboard.phtml&#10;material&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/templates/material.phtml&#10;footer&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/partials/propainter/footer.phtml&#10;index/inde&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/index/index.phtml&#10;login_c&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/login_controller.php&#10;lavori/index&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/lavori/index.phtml&#10;lavori/mostrar&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/lavori/mostrare.phtml&#10;lavori_con&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/lavori_controller.php&#10;lavori_controller&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_lavori_controller.php&#10;lavori&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_lavori_controller.php&#10;lavori/aggiungere&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/lavori/aggiungere.phtml&#10;immagini_lavori_controller&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_lavori_controller.php&#10;immagini_lavori/modifi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/immagini_lavori/modificare.phtml&#10;immagini_lavori/modifica&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/immagini_lavori/modificare.phtml&#10;lavori/modifi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/lavori/modificare.phtml&#10;lavori_cont&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/lavori_controller.php&#10;immagini_servizi/modifi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/immagini_servizi/modificare.phtml&#10;immagini_ser&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_servizi_controller.php&#10;servizis_con&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/servizis_controller.php&#10;servizis/mod&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/servizis/modificare.phtml&#10;slides/modifi&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/slides/modificare.phtml&#10;slides_c&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/slides_controller.php&#10;immagini_lavori&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_lavori_controller.php&#10;immagini_servizi_con&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/controllers/immagini_servizi_controller.php&#10;bread&#9;FILE&#9;file://C:/xampp/htdocs/propainter/default/app/views/_shared/partials/propainter/breadcrumbs.phtml" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -416,12 +557,12 @@
       <workItem from="1475403589102" duration="1005000" />
       <workItem from="1475416753291" duration="806000" />
       <workItem from="1475421223419" duration="14345000" />
-      <workItem from="1475484166730" duration="36457000" />
+      <workItem from="1475484166730" duration="42943000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239164000" />
+    <option name="totallyTimeSpent" value="245650000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1038" extended-state="0" />
@@ -485,26 +626,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/default/public/index2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="105" column="40" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default/app/models/immagini_servizi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
-          <folding>
-            <marker date="1475233141399" expanded="true" signature="230:378" placeholder="SELECT A.*,I... immagini_servizi" />
-            <marker date="1475233141399" expanded="true" signature="488:544" placeholder="SELECT COUNT... immagini_servizi" />
-            <marker date="1475233141399" expanded="true" signature="652:739" placeholder="select count... immagini_servizi" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/default/app/models/servizi.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="768">
@@ -574,14 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/public/css/estilos.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="152" column="26" selection-start-line="152" selection-start-column="26" selection-end-line="152" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/default/app/views/slides/mostrare.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
@@ -610,14 +723,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="14" column="90" selection-start-line="14" selection-start-column="90" selection-end-line="14" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default/app/views/slides/modificare.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -762,14 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/app/views/prodotti/aggiungere.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/default/app/views/prodotti/mostrare.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -777,14 +874,6 @@
           <folding>
             <marker date="1475535461789" expanded="true" signature="4129:4266" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default/app/views/prodotti/modificare.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -808,33 +897,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/app/models/prodotti.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
-          <folding>
-            <marker date="1475536859608" expanded="true" signature="221:325" placeholder="SELECT A.ext... archivos" />
-            <marker date="1475536859608" expanded="true" signature="432:551" placeholder="SELECT A.rut... archivos" />
-            <marker date="1475536859608" expanded="true" signature="2096:2126" placeholder="select count... prodotti" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/default/app/controllers/immagini_lavori_controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default/app/controllers/prodotti_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="117" column="41" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
-          <folding>
-            <marker date="1475537198477" expanded="true" signature="5319:5366" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -862,16 +929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/app/models/utenti.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-          <folding>
-            <marker date="1475539918773" expanded="true" signature="199:219" placeholder="SELECT * FRO... utenti" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/default/app/views/admin/dashboard.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="768">
@@ -882,20 +939,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/app/controllers/index_controller.php">
+    <entry file="file://$PROJECT_DIR$/default/app/controllers/admin_controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        <state relative-caret-position="387">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/app/views/_shared/templates/login.phtml">
+    <entry file="file://$PROJECT_DIR$/default/app/views/slides/modificare.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+        <state relative-caret-position="330">
+          <caret line="26" column="69" selection-start-line="25" selection-start-column="20" selection-end-line="26" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/app/views/prodotti/aggiungere.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/app/controllers/prodotti_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
           <folding>
-            <marker date="1475540190198" expanded="true" signature="763:846" placeholder="..." />
+            <marker date="1475537198477" expanded="true" signature="5319:5366" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/app/views/prodotti/modificare.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/app/models/utenti.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <marker date="1475545131749" expanded="true" signature="199:219" placeholder="SELECT * FRO... utenti" />
           </folding>
         </state>
       </provider>
@@ -908,23 +999,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/app/controllers/admin_controller.php">
+    <entry file="file://$PROJECT_DIR$/default/app/views/_shared/templates/admin.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="482">
+          <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
+          <folding>
+            <element signature="e#6#93#0#PHP" expanded="true" />
+            <marker date="1475543844982" expanded="true" signature="2893:2917" placeholder="..." />
+            <marker date="1475543844982" expanded="true" signature="3109:3139" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/app/views/_shared/templates/login.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+          <folding>
+            <marker date="1475545252098" expanded="true" signature="763:845" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/app/views/_shared/partials/propainter/nav.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/app/views/_shared/templates/admin.phtml">
+    <entry file="file://$PROJECT_DIR$/default/public/css/estilos.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="43" column="83" selection-start-line="43" selection-start-column="83" selection-end-line="43" selection-end-column="83" />
+        <state relative-caret-position="42">
+          <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/app/controllers/index_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/app/models/prodotti.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
           <folding>
-            <element signature="e#6#93#0#PHP" expanded="true" />
-            <marker date="1475541079979" expanded="true" signature="2893:2917" placeholder="..." />
-            <marker date="1475541079979" expanded="true" signature="3109:3139" placeholder="..." />
+            <marker date="1475547451044" expanded="true" signature="221:325" placeholder="SELECT A.ext... archivos" />
+            <marker date="1475547451044" expanded="true" signature="438:557" placeholder="SELECT A.rut... archivos" />
+            <marker date="1475547451044" expanded="true" signature="1913:1998" placeholder="SELECT A.* F... archivos" />
+            <marker date="1475547451044" expanded="true" signature="2281:2311" placeholder="select count... prodotti" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/app/views/index/chi_siamo.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

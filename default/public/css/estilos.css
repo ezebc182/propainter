@@ -148,6 +148,10 @@ a.breadcrumb.active{
 
     margin-top: 1%;
 }
+.menu-navigation> li.active> a{
+    color: #ffeb3b ;
+    font-weight: 500;
+}
 /*.ribbon-span {*/
     /*font-size: 10px;*/
     /*font-weight: bold;*/

@@ -13,7 +13,7 @@ class IndexController extends AppController
         $this->menu = "home";
         $this->tags = (new Tags)->getTags();
         $this->slides = (new Slides)->find();
-        
+
 
 
     }
@@ -23,6 +23,7 @@ class IndexController extends AppController
         $this->title = "Chi siamo";
         $this->menu = "chi_siamo";
         $this->tags = (new Tags)->getTags();
+        $this->prodotti = (new Prodotti())->find();
 
 
     }

@@ -9,7 +9,7 @@
 ?>
 <div class="section scrollspy" id="prodotti">
     <div class="container">
-        <div class="row">
+        <div class="row" id="resultados">
             <?php View::content() ?>
         </div>
 
@@ -20,45 +20,63 @@
         </div>
         <div class="row">
             <?php echo Form::openMultipart() ?>
+
             <div class="col s12 m3 l3">
                 <div class="card-panel center">
 
-                    <?php echo Html::img("prodotti/" .$prodotti->nome."/". $archivos->nombre, $archivos->nombre,
-                        "class='  materialboxed responsive-img'"); ?>
+                    <?php echo Html::img("prodotti/".Utils::slug($prodotti->nome)
+                        ."/". $archivos->nombre, $archivos->nombre,
+                        "class='  materialboxed responsive-img' id='img-preview'"); ?>
                 </div>
             </div>
             <div class="col s12 m9 l9">
                 <div class="row">
-                    <div class="input-field">
-                        <?php echo Form::text("prodotti.nome"); ?>
-                        <label for="prodotti_nome">Nome</label>
+
+
+                    <div class="file-field input-field col s12 m6 l6">
+                        <input type="text" id="path_archivo" disabled value="<?php echo $archivos->ruta.$archivos->nombre;?>">
+                        <label for="path_archivo"></label>
+                    </div>
+
+                    <div class="col s12 m6 l6">
+                        <div class="input-field">
+                            <?php echo Form::text("prodotti.nome", "required"); ?>
+                            <label for="prodotti_titolo">Nome</label>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field">
-                        <?php echo Form::textarea("prodotti.descrizione", "class='materialize-textarea'"); ?>
+                    <div class="input-field col s12 m6 l6">
+                        <?php echo Form::url("prodotti.url", "placeholder='http://www.esempio.com'"); ?>
+                        <label for="prodotti_url">Web azienda</label>
+                    </div>
+                    <div class="input-field col s12 m6 l6">
+                        <?php echo Form::dbSelect("prodotti.servizi_id", "nome", array("servizi", "find"),
+                            "Selezionare", ""); ?>
+                        <label for="prodotti_servizi_id">Uttilizato in</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                        <?php echo Form::textarea("prodotti.descrizione", "required class='materialize-textarea'"); ?>
                         <label for="prodotti_descrizione">Descrizione</label>
                     </div>
                 </div>
-
 
             </div>
 
 
         </div>
-
-
-        <div class="row center-align">
-            <?php echo Html::link("prodotti/mostrare/", "Annullare",
-                "class=' btn-large btn-flat'"); ?>
-
-            <?php echo Form::submit("Modificare", "class='waves-effect waves-light btn-block  
-            btn-large yellow black-text'"); ?>
-        </div>
-
-        <?php echo Form::hidden("prodotti.id", FALSE, $prodotti->id); ?>
-        <?php echo Form::hidden("prodotti.archivos_id", FALSE, $archivos->id); ?>
-
-        <?php echo Form::close(); ?>
     </div>
+
+    <div class="row center-align">
+        <?php echo Html::link("prodotti/mostrare/", "Annullare", "class=' btn-large btn-flat'"); ?>
+
+        <?php echo Form::submit("Aggiungere", " disabled class=' waves-effect waves-light btn-block  
+            btn-large yellow black-text'"); ?>
+    </div>
+
+    <?php echo Form::hidden("prodotti.id", FALSE, $prodotti->id); ?>
+    <?php echo Form::hidden("prodotti.archivos_id", FALSE, $archivos->id); ?>
+    <?php echo Form::close(); ?>
 </div>

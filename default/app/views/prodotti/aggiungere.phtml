@@ -53,11 +53,23 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field">
+                    <div class="input-field col s12 m6 l6">
+                        <?php echo Form::url("prodotti.url","placeholder='http://www.esempio.com'"); ?>
+                        <label for="prodotti_url">Web azienda</label>
+                    </div>
+                    <div class="input-field col s12 m6 l6">
+                        <?php echo Form::dbSelect("prodotti.servizi_id", "nome", array("servizi", "find"),
+                            "Selezionare","");?>
+                        <label for="prodotti_servizi_id">Uttilizato in</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
                         <?php echo Form::textarea("prodotti.descrizione", "required class='materialize-textarea'"); ?>
                         <label for="prodotti_descrizione">Descrizione</label>
                     </div>
                 </div>
+
             </div>
 
 

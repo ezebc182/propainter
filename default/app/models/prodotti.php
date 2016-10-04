@@ -14,7 +14,9 @@ class Prodotti extends ActiveRecord
 INNER JOIN prodotti P ON P.archivos_id = A.id 
           WHERE P.id=" . $prodotti_id);
     }
-    public function getImmagine($prodotti_id){
+
+    public function getImmagine($prodotti_id)
+    {
         return $this->find_by_sql("SELECT A.ruta,A.nombre,A.extension FROM archivos A INNER JOIN prodotti P ON P.archivos_id = A.id 
           WHERE P.id=" . $prodotti_id);
     }
@@ -70,10 +72,16 @@ INNER JOIN prodotti P ON P.archivos_id = A.id
         }
     }
 
+    public function getImmagini($id)
+    {
+        return $this->find_by_sql("SELECT A.* FROM archivos A INNER JOIN prodotti P 
+ON P.archivos_id = A.id WHERE P.id=".$id);
+    }
+
     public function renombrarCarpetaImagenes($old_folder_name, $new_folder_name)
     {
 
-        return rename(Utils::slug($old_folder_name),Utils::slug($new_folder_name));
+        return rename(Utils::slug($old_folder_name), Utils::slug($new_folder_name));
 
     }
 
