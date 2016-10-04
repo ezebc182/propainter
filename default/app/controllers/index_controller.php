@@ -13,6 +13,7 @@ class IndexController extends AppController
         $this->menu = "home";
         $this->tags = (new Tags)->getTags();
         $this->slides = (new Slides)->find();
+        
 
 
     }

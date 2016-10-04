@@ -1,0 +1,84 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ezequiel
+ * Date: 15/09/2016
+ * Time: 02:07 PM
+ */
+View::content()
+?>
+<div class="section scrollspy" id="servizi">
+    <div class="container">
+
+        <div class="master">
+  
+            <div class="row">
+                <h3 class=" ">I nostri servizi</h3>
+
+            </div>
+
+            <div class="row">
+
+                <?php foreach ($servizi as $servizio): ?>
+                    <div class=" col s12 m6 l6">
+
+                        <div class="card  hoverable">
+                            <div class=" card-image   ">
+                                <?php $img_principale = $servizio->getImmaginePrincipale($servizio->id); ?>
+                                <?php if ($img_principale->nombre != null): ?>
+                                    <?php echo Html::img("../" . $img_principale->ruta . "/" . $img_principale->nombre
+                                        , "", "class='  servizio center-align responsive-img'"); ?>
+                                <?php else: ?>
+                                    <?php echo Html::img("img-not-found.jpg", "", "class='servizio responsive-img'"); ?>
+                                <?php endif; ?>
+                            </div>
+                            <div class="card-content black ">
+                            <span class="card-title  white-text">
+                                <?php echo $servizio->nome; ?>
+                                 </span>
+                                <a href="#" onclick="openDetails(<?php echo $servizio->id; ?>,event)"
+                                   class="btn-floating waves-effect waves-light darken-1 yellow right">
+                                    <i class="material-icons right">add</i>
+                                </a>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                <?php endforeach; ?>
+
+
+            </div>
+        </div>
+        <div class="row">
+
+            <a id="btn-back" href="#" class="hidden btn btn-floating blue"><i
+                    class="material-icons">keyboard_backspace</i></a>
+        </div>
+        <div class="row detail">
+            <?php foreach ($servizi as $servizio): ?>
+                <div class="hidden" id="detail-<?php echo $servizio->id; ?>">
+                    <h4><?php echo $servizio->nome; ?></h4>
+
+                    <p class="flow-text"><?php echo $servizio->descrizione; ?></p>
+                    <h5>Immagini</h5>
+                    <?php foreach ($immagini = $servizio->getImmagini($servizio->id) as $item): ?>
+                        <div class="col s12 m3 l3">
+                            <div class="card-panel center">
+
+                                <?php echo Html::img("../" . $item->ruta . "/" . $item->nombre
+                                    , "", "class='  responsive-img  materialboxed'
+                        data-caption='$item->descrizione'"); ?>
+
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <input type="hidden" id="hdn_detail_id">
+    </div>
+</div>

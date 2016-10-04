@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <?php echo View::partial("propainter/head", FALSE, array("title" => $title)); ?>
+    <?php Tag::css("materialize.min"); ?>
+    <?php echo Html::includeCss(); ?>
+
+</head>
+<body>
+
+
+<div class="section no-pad-bot scrollspy ">
+    <div class="container">
+
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row">
+            <div class="valign-wrapper">
+                <div class="col s12 m4 l4 offset-m4 offset-l4">
+                    <?php echo Form::open("auth/login") ?>
+                    <input name="mode" type="hidden" value="auth">
+
+                    <div class="row center-align">
+                        <?php echo Html::img("logos/logo-min.png", "logo", "class=' responsive-img'"); ?>
+                    </div>
+                    <div class="row">
+                        <div class="input-field">
+                            <i class="material-icons prefix">account_circle</i>
+                            <?php echo Form::text("email"); ?>
+
+                            <label for="usuarios_email">Email</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">vpn_key</i>
+
+                            <?php echo Form::password("password"); ?>
+                            <label for="usuarios_password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <?php echo Form::submit("Ingresar", "class='center waves-effect waves-light btn-block  
+            btn-large yellow black-text'"); ?>
+                    </div>
+                    <?php echo Form::close(); ?>
+
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col s12 m4 l4 offset-m4 offset-l4 small center-align">
+                <?php View::content() ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php echo Tag::js("min/plugin-min"); ?>
+<?php echo Tag::js("min/custom-min"); ?>
+</body>
+</html>

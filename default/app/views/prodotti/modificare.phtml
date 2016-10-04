@@ -7,7 +7,7 @@
  */
 
 ?>
-<div class="section scrollspy" id="slides">
+<div class="section scrollspy" id="prodotti">
     <div class="container">
         <div class="row">
             <?php View::content() ?>
@@ -23,21 +23,21 @@
             <div class="col s12 m3 l3">
                 <div class="card-panel center">
 
-                    <?php echo Html::img("slides/" . $archivos->nombre, $archivos->nombre,
+                    <?php echo Html::img("prodotti/" .$prodotti->nome."/". $archivos->nombre, $archivos->nombre,
                         "class='  materialboxed responsive-img'"); ?>
                 </div>
             </div>
             <div class="col s12 m9 l9">
                 <div class="row">
                     <div class="input-field">
-                        <?php echo Form::text("slides.nome"); ?>
-                        <label for="slides_nome">Nome</label>
+                        <?php echo Form::text("prodotti.nome"); ?>
+                        <label for="prodotti_nome">Nome</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field">
-                        <?php echo Form::textarea("slides.descrizione", "class='materialize-textarea'"); ?>
-                        <label for="slides_descrizione">Descrizione</label>
+                        <?php echo Form::textarea("prodotti.descrizione", "class='materialize-textarea'"); ?>
+                        <label for="prodotti_descrizione">Descrizione</label>
                     </div>
                 </div>
 
@@ -49,15 +49,15 @@
 
 
         <div class="row center-align">
-            <?php echo Html::link("slides/mostrare/", "Annullare",
+            <?php echo Html::link("prodotti/mostrare/", "Annullare",
                 "class=' btn-large btn-flat'"); ?>
 
             <?php echo Form::submit("Modificare", "class='waves-effect waves-light btn-block  
             btn-large yellow black-text'"); ?>
         </div>
 
-        <?php echo Form::hidden("slides.id", FALSE, $slides->id); ?>
-        <?php echo Form::hidden("slides.archivos_id", FALSE, $archivos->id); ?>
+        <?php echo Form::hidden("prodotti.id", FALSE, $prodotti->id); ?>
+        <?php echo Form::hidden("prodotti.archivos_id", FALSE, $archivos->id); ?>
 
         <?php echo Form::close(); ?>
     </div>

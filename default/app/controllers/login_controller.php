@@ -9,7 +9,23 @@
 class LoginController extends AppController
 {
     public function index(){
-        $this->title="Login";
-        View::template("login");
+
+        $auth = Auth2::factory("model");
+
+        if($auth->isValid()){
+           Redirect::to("admin/dashboard");
+            $this->title="Dashboard";
+            View::template("admin");
+        }else{
+            $this->title="Login";
+            View::template("login");
+        }
+
+    }
+
+    public function login(){
+
+        $auth = Auth2::factory("usuarios");
+        Redirect::to("admin/dashboard");
     }
 }

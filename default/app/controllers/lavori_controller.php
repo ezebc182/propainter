@@ -26,10 +26,18 @@ class LavoriController extends AppController
         $this->menu = "aggiungere";
         $this->title = "Aggiungere un nuovo lavoro";
         $this->tags = null;
+        $this->breadcrumbs = array(array("link" => "admin/dashboard",
+            "text" => "Dashboard "),
+            array("link" => "lavori/mostrare", "text" => "lavori"),
+            array("link" => "lavori/aggiungere","text"=>"Aggiungere", "active" => true)
+        );
+        View::template("admin");
+
 
         if (Input::hasPost("lavori")) {
             try {
                 $lavoro = (new Lavori());
+                //$lavoro->servizi_tags = Input::post("lavori.servizi_tags");
                 $lavoro->nome = Utils::normalizar_oracion(Input::post("lavori.nome"));
                 $lavoro->descrizione = Utils::normalizar_oracion(Input::post("lavori.descrizione"));
                 if ($lavoro->create()) {
@@ -44,26 +52,43 @@ class LavoriController extends AppController
             }
             Redirect::to("lavori/mostrare");
         }
+
     }
 
     public function mostrare()
     {
         $this->menu = "mostrare";
-        $this->title = "lavori";
+        $this->title = "Lavori";
         $this->tags = null;
         $this->lavori = (new Lavori())->find();
-
+        View::template("admin");
+        $this->breadcrumbs = array(array("link" => "admin/dashboard",
+            "text" => "Dashboard "),
+            array("link" => "lavori/mostrare", "text" => "lavori","active"=>true),
+        );
     }
 
     public function modificare($id)
     {
+        View::template("admin");
         $this->menu = "modificare";
-        $this->title = "Modificare un lavoro";
-        $this->tags = null;
         $this->lavori = (new Lavori())->find($id);
+
+        $this->title = "Modificare il lavoro: <b>".$this->lavori->nome."</b>";
+        $this->tags = null;
+
+        $this->breadcrumbs = array(array("link" => "admin/dashboard",
+            "text" => "Dashboard "),
+            array("link" => "lavori/mostrare", "text" => "lavori"),
+            array("link" => false, "text" => $this->lavori->nome),
+            array("link" => "lavori/modificare/$id",
+                "text" => "Modificare", "active" => true));
         if (Input::hasPost("lavori")) {
             try {
                 $_old_lavori = (new Lavori())->find($id);
+//                $this->lavori = (new Lavori());
+//                $this->lavori->nome = Utils::normalizar_oracion(Input::post("lavori.nome"));
+//                $this->lavori->descrizione = Utils::normalizar_oracion(Input::post("lavori.descrizione"));
                 $this->lavori = (new Lavori(Input::post("lavori")));
 
                 if ($this->lavori->update()) {
@@ -131,7 +156,7 @@ class LavoriController extends AppController
         } catch (KumbiaException $e) {
             Flash::error("è verificato un errore eliminare il lavoro: " . $e->getMessage());
 
-        }
+        } View::template("admin");
         Redirect::to("lavori/mostrare");
 
 

@@ -1,0 +1,108 @@
+<div class="section scrollspy" id="prodotti">
+    <div class="container">
+        <div class="row">
+            <?php View::content(); ?>
+        </div>
+        <div class="row">
+            <h3><?php echo $title; ?></h3>
+        </div>
+
+        <div class="row">
+            <?php echo Html::link("prodotti/aggiungere", "<i class='material-icons'>add</i>", "class='btn-floating 
+        light-green darken-1 right' title='Aggiungere un prodotto'"); ?>
+        </div>
+        <div class="row">
+
+            <?php if (count($prodotti) < 0 || $prodotti == null): ?>
+                <p class="flow-text red-text">
+                    Nessun risultato da mostrare</p>
+            <?php else: ?>
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th data-field="id">#</th>
+                    <th data-field="nome">Nome</th>
+                    <th data-field="descrizione">Descrizione</th>
+                    <th data-field="azioni">Azioni</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <?php $i = 1;
+                foreach ($prodotti as $prodotto): ?>
+                    <tr>
+                        <td><?php echo "<b>" . $i . "</b>"; ?></td>
+                        <td><?php echo $prodotto->nome; ?></td>
+                        <td>
+                            <?php if (strlen($prodotto->descrizione) > 130): ?>
+                                <?php echo substr($prodotto->descrizione, 0, 129) ?>&nbsp;<strong>...</strong>
+                            <?php else: ?>
+                                <?php echo $prodotto->descrizione ?>
+                            <?php endif ?>
+                        </td>
+                        <td>
+                            <a href="<?php echo $prodotto->url;?>"
+                            class='btn-floating grey' title='Visita il sitio' target='_blank'>
+                                <i class="material-icons">http</i>
+                            </a>
+                            <a href="#modal-<?php echo $prodotto->id ?>"
+                               class='modal-trigger btn-floating purple' title='Vedere immagine'>
+                                <i class='material-icons'>image</i>
+                            </a>
+                            <?php echo Html::link("prodotti/modificare/" .
+                                $prodotto->id, "<i class='material-icons'>edit</i>",
+                                "class='btn-floating blue' title='Modifica'"); ?>
+
+                            <a href="#modal-eliminare-<?php echo $prodotto->id ?>"
+                               class='modal-trigger btn-floating red' title='Eliminare immagine'>
+                                <i class='material-icons'>delete</i>
+                            </a>
+
+                        </td>
+                    </tr>
+                    <?php $i++;endforeach; ?>
+
+                <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <?php foreach ($prodotti as $item): ?>
+        <!-- Modal Structure -->
+        <div id="modal-<?php echo $item->id; ?>" class="modal">
+            <div class="modal-content">
+                <h4><?php echo $item->nome; ?></h4>
+                <div class="center-align">
+                    <?php echo Html::img("prodotti/".Utils::slug($item->nome)."/" . Utils::slug($item->nome) . "." . ($item->getExtension($item->id)->extension),
+                        $item->nome, " class='responsive-img'"); ?>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal-eliminare-<?php echo $item->id; ?>" class="modal">
+            <div class="modal-content">
+                <h4>Attenzione</h4>
+                <p class="flow-text">
+                    Siete sicuri di eliminare l' immagine <b><?php echo $item->nome; ?></b>?
+                </p>
+            </div>
+            <div class="modal-footer">
+
+
+                <?php echo Html::link("prodotti/eliminare/" .
+                    $item->id, " Eliminare",
+                    "class='btn red' title='Eliminare'"); ?>
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annullare</a>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+</div>

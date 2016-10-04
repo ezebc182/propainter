@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="center-align col s6 m6 l6">
-                            <b>Massimiliano Eduardo Saurin CF:SRNMSM79M01Z600O</b>
+                            <b><?php echo $utenti->nome . " " . $utenti->cognome; ?></b>
                         </div>
                         <div class="right-align col s3 m3 l3">
 
@@ -56,8 +56,8 @@
 
                         <?php echo Html::img("logos/logo-min.png", "", "class='logo-footer responsive-img'"); ?>
                         <p class="white-text text-lighten-4"><i class="material-icons  tiny">phone</i>
-                            +39.331.795.6936 &nbsp;&nbsp; <i class="material-icons  tiny">email</i>
-                            info@propainter.it
+                            <?php echo $utenti->telefono; ?> &nbsp;&nbsp; <i class="material-icons  tiny">email</i>
+                            <?php echo $utenti->email_contatto; ?>
                         </p>
                     </div>
 
@@ -68,27 +68,16 @@
 
                     <div class="row">
                         <div class="col s12 m12 l12">
-                            <h5 class="white-text  left-align">Massimiliano Eduardo Saurin</h5>
+                            <h5 class="white-text  left-align"><?php echo $utenti->nome . " " . $utenti->cognome; ?></h5>
                             <p class="white-text text-lighten-4">
 
-                                P. IVA: 02460630037 <br>
-                                PEC: propainter@legalmail.it<br>
-                                CF: SRNMSM79M01Z600O
+                                P. IVA: <?php echo $utenti->p_iva; ?> <br>
+                                PEC: <?php echo $utenti->pec; ?><br>
+                                CF: <?php echo $utenti->cf; ?>
                             </p>
 
 
                         </div>
-
-
-
-                        <!--                        <p class="white-text">Etichette</p>-->
-                        <!--                        --><?php //foreach ($tags as $tag): ?>
-                        <!---->
-                        <!--                            <div class="chip">-->
-                        <!--                                --><?php //echo $tag; ?>
-                        <!---->
-                        <!--                            </div>-->
-                        <!--                        --><?php //endforeach; ?>
                     </div>
 
 
@@ -101,21 +90,21 @@
 
 
                     <div class="footer-copyright">
-                    <div class="right">
+                        <div class="right">
 
-                        <b><?php echo date("Y") ?> </b>&nbsp;&nbsp;
+                            <b><?php echo date("Y") ?> </b>&nbsp;&nbsp;
 
-                        <a target="_blank" href="https://www.facebook.com/propainter.it"
-                           class="btn-floating  waves-effect waves-light blue darken-1 tooltipped"
-                           data-position="top" data-delay="50" data-tooltip="Diventare fan!">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a target="_blank" href="https://ar.linkedin.com/in/ezequiel-bär-coch-5478a263"
-                           class="btn-floating  waves-effect waves-light grey lighten-3 tooltipped"
-                           data-position="top" data-delay="50" data-tooltip="¿Ti é piaciuta la pagina? Contatto!">
-                            <i class="material-icons black-text">code</i>
-                        </a>
-                    </div>
+                            <a target="_blank" href="<?php echo $utenti->facebook_url; ?>"
+                               class="btn-floating  waves-effect waves-light blue darken-1 tooltipped"
+                               data-position="top" data-delay="50" data-tooltip="Diventare fan!">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a target="_blank" href="https://ar.linkedin.com/in/ezequiel-bär-coch-5478a263"
+                               class="btn-floating  waves-effect waves-light grey lighten-3 tooltipped"
+                               data-position="top" data-delay="50" data-tooltip="¿Ti é piaciuta la pagina? Contatto!">
+                                <i class="material-icons black-text">code</i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

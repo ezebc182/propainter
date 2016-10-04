@@ -81,11 +81,7 @@ body{
 i{
     font-variant:normal;
 }
-li.active a{
-    color:#ffeb3b;
-    font-weight: bold;
 
-}
 .logo-footer.responsive-img {
     max-width: 50%;
     height: auto;
@@ -133,18 +129,24 @@ li.active a{
 }
 
 .breadcrumbs, .breadcrumbs a{
-    background: #fff;
+    background: #000;
     font-weight:300;
-    padding:15px;
-    color: #000;
+    font-size: 12px;
+    color: #fff;
 }
 
 a.breadcrumb.active{
-    color: #000;
+    color: #ffeb3b !important;
     /*text-decoration: underline;*/
     font-weight:500;
 
 
+}
+.menu-side-bar{
+
+    margin-left: 2%;
+
+    margin-top: 1%;
 }
 /*.ribbon-span {*/
     /*font-size: 10px;*/

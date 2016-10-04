@@ -52,7 +52,7 @@
                                 <?php echo Html::link("servizis/modificare/" .
                                     $servizio->id, "<i class='material-icons'>edit</i>",
                                     "class='btn-floating blue' title='Modifica'");?>
-                                <a href="#modal-<?php echo $servizio->id?>"
+                                <a href="#modal-eliminare-<?php echo $servizio->id?>"
                                    class='modal-trigger btn-floating red' title='Eliminare servizio?'>
                                     <i class='material-icons'>delete</i>
                                 </a>
@@ -68,7 +68,7 @@
     </div>
     <?php foreach($servizi as $item):?>
         <!-- Modal Structure -->
-        <div id="modal-<?php echo $item->id;?>" class="modal">
+        <div id="modal-eliminare-<?php echo $item->id;?>" class="modal">
             <div class="modal-content">
                 <h4>Attenzione</h4>
                 <p class="flow-text">

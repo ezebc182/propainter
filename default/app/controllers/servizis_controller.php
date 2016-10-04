@@ -26,7 +26,12 @@ class ServizisController extends AppController
         $this->menu = "aggiungere";
         $this->title = "Aggiungere un nuovo servizio";
         $this->tags = null;
-
+        $this->breadcrumbs = array(array("link" => "admin/dashboard",
+            "text" => "Dashboard "),
+            array("link" => "servizis/mostrare", "text" => "servizi"),
+            array("link" => "servizis/aggiungere",
+                "text" => "Aggiungere", "active" => true));
+        View::template("admin");
         if (Input::hasPost("servizi")) {
             try {
                 $servizio = (new Servizi());
@@ -50,18 +55,29 @@ class ServizisController extends AppController
     {
         $this->menu = "mostrare";
         $this->title = "Servizi";
+        View::template("admin");
         $this->tags = null;
         $this->servizi = (new Servizi())->find();
-        $this->breadcrumbs = array(array("link"=>"admin/dashboard",
-            "text"=>"Dashboard"),array("link"=>"servizis/mostrare","text"=>"Servizi"));
+        $this->breadcrumbs = array(array("link" => "admin/dashboard",
+            "text" => "Dashboard "),
+            array("link" => "servizis/mostrare", "text" => "servizi", "active" => true));
     }
 
     public function modificare($id)
     {
         $this->menu = "modificare";
-        $this->title = "Modificare un servizio";
-        $this->tags = null;
         $this->servizi = (new Servizi())->find($id);
+
+        $this->title = "Modificare il servizio: <b>" . $this->servizi->nome."</b>";
+
+        $this->tags = null;
+        $this->breadcrumbs = array(array("link" => "admin/dashboard",
+            "text" => "Dashboard "),
+            array("link" => "servizis/mostrare", "text" => "servizi"),
+            array("link" => false, "text" => $this->servizi->nome),
+            array("link" => "servizis/modificare/$id",
+                "text" => "Modificare", "active" => true));
+        View::template("admin");
         if (Input::hasPost("servizi")) {
             try {
                 $_old_servizi = (new Servizi())->find($id);
@@ -71,7 +87,7 @@ class ServizisController extends AppController
 
                     if ($this->servizi->renombrarRutaImagenes($this->servizi->id, "/img/servizi/" . $this->servizi->nome)) {
                         if ($this->servizi->renombrarCarpetaImagenes(ABSOLUTE_PATH . "img/servizi/" .
-                            Utils::slug($_old_servizi->nome),
+                                Utils::slug($_old_servizi->nome),
                                 ABSOLUTE_PATH . "img/servizi/" . Utils::slug($this->servizi->nome)) === TRUE
                         ) {
                             Flash::valid("Servizio  <b>" .
@@ -109,7 +125,7 @@ class ServizisController extends AppController
         $this->menu = "eliminare";
         $this->title = "Eliminare un servizio";
         $this->tags = null;
-
+        View::template("admin");
 
         try {
             $this->servizi = (new Servizi())->find($id);

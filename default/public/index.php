@@ -55,6 +55,8 @@ define('PRODUCTION', FALSE);
  * - En producción, es recomendable ponerla manual
  */
 define('APP_PATH', dirname(__DIR__) . '/app/');
+//define('APP_PATH', '/home/wldmqmsl/default/app/');
+
 
 /**
  * Define el CORE_PATH
@@ -63,7 +65,7 @@ define('APP_PATH', dirname(__DIR__) . '/app/');
  * - Ruta al directorio que contiene el núcleo de Kumbia (por defecto la ruta al directorio core)
  */
 define('CORE_PATH', dirname(dirname(APP_PATH)) . '/core/');
-
+//define('CORE_PATH', '/home/wldmqmsl/core/');
 /**
  * Define el PUBLIC_PATH
  *
@@ -78,6 +80,7 @@ define('CORE_PATH', dirname(dirname(APP_PATH)) . '/core/');
 //$number += empty($_SERVER['QUERY_STRING']) ? 0 : strlen(urldecode($_SERVER['QUERY_STRING'])) + 1;
 //define('PUBLIC_PATH', substr(urldecode($_SERVER['REQUEST_URI']), 0, -$number));
 define('PUBLIC_PATH',"http://propainter.dev/");
+//define('PUBLIC_PATH',"http://www.propainter.it/");
 
 /**
  * Define el ABSOLUTE_PATH
@@ -86,6 +89,8 @@ define('PUBLIC_PATH',"http://propainter.dev/");
  * - Define la ruta absoluta a la aplicación.
  */
 define('ABSOLUTE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/default/public/');
+//define('ABSOLUTE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/public_html/');
+
 /**
  * Obtiene la url
  */

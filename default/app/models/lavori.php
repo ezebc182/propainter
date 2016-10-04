@@ -96,7 +96,7 @@ WHERE L.id = " . $lavoro_id);
     public function renombrarCarpetaImagenes($old_folder_name, $new_folder_name)
     {
 
-        return rename($old_folder_name, $new_folder_name);
+        return rename(Utils::slug($old_folder_name),Utils::slug($new_folder_name));
 
     }
 }

@@ -16,15 +16,20 @@ class ImmaginiServiziController extends AppController
 
     public function aggiungere($id)
     {
+        View::template("admin");
 
         $this->title = "Aggiungere immagine per il servizio. ";
         $this->menu = "aggiungere_immagini";
         $this->tags = null;
-        $this->breadcrumbs = array(array("link"=>"immagini_servizi/mostrare/$id",
-            "text"=>"Mostrare"),array("link"=>"immagini_servizi/aggiungere/$id",
-            "text"=>"Aggiungere"));
-
         $this->servizio = (new Servizi())->find($id);
+
+        $this->breadcrumbs = array(array("link" => "admin/dashboard",
+            "text" => "Dashboard "),
+            array("link" => "servizis/mostrare", "text" => "servizi"),
+            array("link" => false, "text" => $this->servizio->nome),
+            array("link" => "immagini_servizi/mostrare", "text" => "Immagini"),
+            array("link" => "immagini_servizi/aggiungere/$id",
+                "text" => "Aggiungere", "active" => true));
 
         $this->cantidad = (new ImmaginiServizi())->countImmagine($id);
         if (Input::hasPost("immagini_servizi")) {
@@ -40,7 +45,7 @@ class ImmaginiServiziController extends AppController
                     $nombre_archivo = Utils::slug($data["nome_immagine"]);
                     $carpeta = Utils::slug($data["nome_servizi"]);
                     $archivos = new Archivos();
-                    $ruta =  "servizi/".$carpeta . '/';
+                    $ruta = "servizi/" . $carpeta . '/';
 
 
                     $_archivo = $archivos->uploadArchivo("file", $ruta, "image", $nombre_archivo);
@@ -76,14 +81,22 @@ class ImmaginiServiziController extends AppController
 
     public function modificare($id)
     {
-        $this->title = "Modificare immagine per il servizio ";
+        View::template("admin");
+        $this->immagini_servizi = (new ImmaginiServizi())->find($id);
+
+        $this->title = "Modificare immagine: <b>" . $this->immagini_servizi->nome . "</b>";
         $this->menu = "modificare_immagini";
         $this->tags = null;
 
-        $this->immagini_servizi = (new ImmaginiServizi())->find($id);
         $this->servizio = (new Servizi())->find($this->immagini_servizi->servizi_id);
         $this->archivos = (new Archivos())->find($this->immagini_servizi->files_id);
-
+        $this->breadcrumbs = array(array("link" => "admin/dashboard",
+            "text" => "Dashboard "),
+            array("link" => "servizis/mostrare", "text" => "servizi"),
+            array("link" => false, "text" => $this->servizio->nome),
+            array("link" => "immagini_servizi/mostrare", "text" => "Immagini"),
+            array("link" => "immagini_servizi/modificare/$id",
+                "text" => "Modificare", "active" => true));
         if (Input::hasPost("immagini_servizi")) {
 
             $immagini_servizi = (new ImmaginiServizi(Input::post("immagini_servizi")));
@@ -118,17 +131,19 @@ class ImmaginiServiziController extends AppController
 
     public function mostrare($id)
     {
+        View::template("admin");
+
         $this->title = "Mostrare immagini per il servizio ";
         $this->menu = "mostrare_immagini";
         $this->servizio = (new Servizi())->find($id);
         $this->immagini = (new ImmaginiServizi())->getImmagini($id);
         $this->tags = null;
-        $this->breadcrumbs = array(array("link"=>"admin/dashboard",
-            "text"=>"Dashboard "),
-            array("link"=>"servizis/mostrare","text"=>"Servizi"),
-            array("link"=>null,"text"=>$this->servizio->nome),
-            array("link"=>"immagini_servizi/mostrare/$id",
-            "text"=>"Immagini","active"=>true));
+        $this->breadcrumbs = array(array("link" => "admin/dashboard",
+            "text" => "Dashboard "),
+            array("link" => "servizis/mostrare", "text" => "servizi"),
+            array("link" => false, "text" => $this->servizio->nome),
+            array("link" => "immagini_servizi/mostrare/$id", "text" => "Immagini"
+            , "active" => true));
         if (Input::isAjax()) {
             echo json_encode($this->immagini);
             View::select(null, null);
@@ -137,6 +152,8 @@ class ImmaginiServiziController extends AppController
 
     public function eliminare($immagine_id)
     {
+        View::template("admin");
+
         $immagini_servizi = (new ImmaginiServizi())->find($immagine_id);
         $immagini_servizi_old = $immagini_servizi;
         try {
@@ -156,6 +173,8 @@ class ImmaginiServiziController extends AppController
 
     public function fare_principale($immagine_id)
     {
+        View::template("admin");
+
         $this->title = "fare_primaria immagini";
         $this->menu = "fare_primaria";
         $this->tags = null;

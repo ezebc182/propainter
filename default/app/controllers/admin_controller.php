@@ -13,11 +13,25 @@ class AdminController extends AppController
         $this->tags = null;
         $this->menu = null;
         $this->title = "Index";
-        Session::set("tipo_usuario", "admin");
-    }
-    public function dashboard(){
+
 
     }
+
+    public function dashboard()
+    {
+        $auth = Auth2::factory("model");
+
+        if($auth->isValid()){
+//            Redirect::to("admin/dashboard");
+            $this->title="Dashboard";
+            View::template("admin");
+        }else{
+            Redirect::to("login");
+        }
+
+
+    }
+
     public function getMaxFileSize($val)
     {
         if (Input::isAjax()) {
@@ -29,11 +43,19 @@ class AdminController extends AppController
         View::select(null, null);
 
     }
-    public function getFileType(){
+
+    public function getFileType()
+    {
+
         if (Input::isAjax()) {
-            if (!in_array(Input::post("fileType"),array("image/jpeg","image/png","image/png"))) {
-                Flash::warning("El archivo no es un formato válido. Sólo se permiten <b>.JPG</b> ,<b>.JPEG</b> o <b>.PNG</b> ");
+
+            if (!in_array(Input::post("fileType"), array("image/jpeg", "image/png", "image/png"))) {
+                Flash::warning("El archivo no es un formato válido. Sólo se permiten <b>.JPG</b>,<b>.JPEG</b> o <b>.PNG</b>");
+
             }
+            //Flash::info("El tipo de archivo es: " . Input::post("fileType"));
+
+
         }
         View::select(null, null);
     }

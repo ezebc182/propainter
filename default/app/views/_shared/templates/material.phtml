@@ -18,21 +18,20 @@
 <body id="top" class="scrollspy">
 <header></header>
 <main>
-<!-- Pre Loader -->
-<div id="loader-wrapper">
-    <div id="loader"></div>
+    <!-- Pre Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
 
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
 
-</div>
+    </div>
 
-<!--Navigation-->
-<?php echo View::partial("propainter/nav", FALSE, array('menu' => $menu)); ?>
-<?php echo View::partial("propainter/breadcrumbs",FALSE,isset($breadcrumbs)?array('breadcrumbs'=>$breadcrumbs):null);?>
+    <!--Navigation-->
+    <?php echo View::partial("propainter/nav", FALSE, array('menu' => $menu)); ?>
     <?php echo View::partial("propainter/scripts"); ?>
 </main>
-<?php echo View::partial("propainter/footer", FALSE, array('tags' => $tags)); ?>
+<?php echo View::partial("propainter/footer", FALSE, array('tags' => $tags, "utenti" => $utenti)); ?>
 
 </body>
 </html>

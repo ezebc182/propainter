@@ -16,15 +16,18 @@ class ImmaginiLavoriController extends AppController
 
     public function aggiungere($id)
     {
+        View::template("admin");
+        $this->lavoro = (new Lavori())->find($id);
 
-        $this->title = "Aggiungere immagini per il lavoro. ";
+        $this->title = "Aggiungere immagini per il lavoro: <b>" . $this->lavoro->nome . "</b>";
         $this->menu = "aggiungere_immagini";
         $this->tags = null;
-        $this->breadcrumbs = array(array("link" => "immagini_lavori/mostrare/$id",
-            "text" => "Mostrare"), array("link" => "immagini_lavori/aggiungere/$id",
-            "text" => "Aggiungere"));
 
-        $this->lavoro = (new Lavori())->find($id);
+        $this->breadcrumbs = array(array("link" => "admin/dashboard", "text" => "Dashboard "),
+            array("link" => "lavori/mostrare", "text" => "lavori"),
+            array("link" => false, "text" => $this->lavoro->nome),
+            array("link" => "immagini_lavori/mostrare", "text" => "Immagini"),
+            array("link" => "immagini_lavori/aggiungere/$id", "text" => "Aggiungere", "active" => true));
 
         $this->cantidad = (new ImmaginiLavori())->countImmagine($id);
         if (Input::hasPost("immagini_lavori")) {
@@ -32,7 +35,7 @@ class ImmaginiLavoriController extends AppController
                 if (Utils::maxPostCheck()) {
                     $lavori = (new Lavori())->find($id);
                     $data = array(
-                        "nome_lavori" => $lavori->nome,
+                        "nome_lavori" => strtolower($lavori->nome),
                         "nome_lavoro" => Input::post("immagini_lavori.nome"),
 
                     );
@@ -92,14 +95,22 @@ class ImmaginiLavoriController extends AppController
 
     public function modificare($id)
     {
-        $this->title = "Modificare lavoro per il lavoro ";
+        $this->immagini_lavori = (new ImmaginiLavori())->find($id);
+
+        $this->title = "Modificare immagini: <b>" . $this->immagini_lavori->nome . "</b>";
         $this->menu = "modificare_immagini";
         $this->tags = null;
+        View::template("admin");
 
-        $this->immagini_lavori = (new ImmaginiLavori())->find($id);
         $this->lavoro = (new Lavori())->find($this->immagini_lavori->lavori_id);
         $this->archivos = (new Archivos())->find($this->immagini_lavori->files_id);
-
+        $this->breadcrumbs = array(array("link" => "admin/dashboard",
+            "text" => "Dashboard "),
+            array("link" => "lavori/mostrare", "text" => "lavori"),
+            array("link" => false, "text" => $this->lavoro->nome),
+            array("link" => "immagini_lavori/mostrare", "text" => "Immagini"),
+            array("link" => "immagini_lavori/modificare/$id",
+                "text" => "Modificare", "active" => true));
         if (Input::hasPost("immagini_lavori")) {
 
             $immagini_lavori = (new ImmaginiLavori(Input::post("immagini_lavori")));
@@ -134,6 +145,8 @@ class ImmaginiLavoriController extends AppController
 
     public function mostrare($id)
     {
+        View::template("admin");
+
         $this->title = "Mostrare immagini per il lavoro ";
         $this->menu = "mostrare_immagini";
         $this->lavoro = (new Lavori())->find($id);
@@ -142,9 +155,9 @@ class ImmaginiLavoriController extends AppController
         $this->breadcrumbs = array(array("link" => "admin/dashboard",
             "text" => "Dashboard "),
             array("link" => "lavori/mostrare", "text" => "lavori"),
-            array("link" => null, "text" => $this->lavoro->nome),
+            array("link" => false, "text" => $this->lavoro->nome),
             array("link" => "immagini_lavori/mostrare/$id",
-                "text" => "i", "active" => true));
+                "text" => "Immagini", "active" => true));
         if (Input::isAjax()) {
             echo json_encode($this->lavori);
             View::select(null, null);
@@ -153,6 +166,8 @@ class ImmaginiLavoriController extends AppController
 
     public function eliminare($lavoro_id)
     {
+        View::template("admin");
+
         $immagini_lavori = (new ImmaginiLavori())->find($lavoro_id);
         $immagini_lavori_old = $immagini_lavori;
         try {
@@ -172,6 +187,8 @@ class ImmaginiLavoriController extends AppController
 
     public function fare_principale($immagine_id)
     {
+        View::template("admin");
+
         $this->title = "fare_primaria immagini";
         $this->menu = "fare_primaria";
         $this->tags = null;

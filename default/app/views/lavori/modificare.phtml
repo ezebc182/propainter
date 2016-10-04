@@ -10,11 +10,12 @@
 <div class="section scrollspy" id="lavori">
     <div class="container">
         <div class="row">
-            <h3><?php echo $title; ?></h3>
+            <blockquote>
+                <h4><?php echo $title; ?></h4>
+            </blockquote>
+
         </div>
-        <!--        <div class="row">-->
-        <!--            --><?php //View::content() ?>
-        <!--        </div>-->
+
         <div class="row">
             <?php echo Form::open(); ?>
             <div class="input-field col s12 m7 l7">
@@ -23,7 +24,7 @@
             </div>
             <div class="input-field col s12 m5 l5">
                 <?php echo Form::dbSelect("lavori.statos_lavori_id", "nome", array("statos_lavori", "getStatos"),
-                    "Seleccione","class=''")?>
+                    "Seleccione", "class=''") ?>
                 <label for="lavori_stato">Stato del lavoro</label>
 
             </div>

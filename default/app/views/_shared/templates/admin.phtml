@@ -1,0 +1,152 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ezequiel
+ * Date: 02/10/2016
+ * Time: 09:18 PM
+ */ ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#000000">
+    <meta name="description"
+          content="E un'impresa giovane, ma e anche il risultato di molti anni di esperienza nel campo delle vernici, delle
+       decorazioni, della progettazione e realizzazione di stand e show-room.
+Dedichiamo la massima attenzione ai dettagli, fin dai lavori più semplici a quelli più complessi. Non abbiamo fretta e
+siamo soddisfatti solo quando ogni lavori si consegna al cliente al 100%
+Comunque, garantendo gran professionalità e serietà nei lavori, sappiamo anche che riusciamo a offrire un rapporto
+qualità prezzo molto vantaggioso, cercando sempre di adeguarci alle necessita e possibilità del cliente.
+Ci accompagna la passione in quello che facciamo, per questo siamo orgogliosi della nostra impresa.">
+    <meta name="keywords"
+          content="propainter,tingteggiature in generale,rivestimenti decorativi,pavimenti continui in resina,strutture in cartongesso,
+      rimodellazioni,recupero e restauro strutture,patine,stucco veneziano,progettazione e allestimento stand e show-room">
+    <meta name="robots">
+    <title><?php echo $title . " | " . Config::get("config.application.name"); ?></title>
+
+    <!-- CSS  -->
+    <?php Tag::css("font-awesome.min"); ?>
+    <?php Tag::css("estilos"); ?>
+    <!--    --><?php //Tag::css("material-design-icons");?>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <?php Tag::css("materialize.min"); ?>
+    <?php echo Html::includeCss(); ?>
+
+</head>
+<body>
+<div class="col s3 m3 l3">
+    <ul id="slide-out" class="side-nav ">
+        <li>
+            <div class="userView center center-align">
+                <?php echo Html::img("logos/logo.png", "", "style='background:#000;' class='background'"); ?>
+                <a href="#!user"><?php echo Html::img("avatares/avatar46.png", "", "class='circle'
+                style='    margin: 0 auto;'"); ?></a>
+                <a href="#!name"><span class="white-text name">Massimiliano Saurin</span></a>
+                <a href="#!email"><span class="white-text email">maxisaurin@propainter.it</span></a>
+            </div>
+        </li>
+        <li>
+            <?php echo Html::link("admin/dashboard", '<i class="material-icons">home</i>Dashboard'); ?>
+        </li>
+        <li><?php echo Html::link(FALSE, '<i class="material-icons">developer_board</i>Vedere il sitio', "target='_blank'"); ?>
+        </li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">settings</i>Opzioni personali</a></li>
+
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader">Gestire</a></li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header">Lavori<i class="material-icons">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><?php echo Html::link("lavori/aggiungere", "<i class='material-icons'>add</i>Aggiungere"); ?>
+                            </li>
+                            <li><?php echo Html::link("lavori/mostrare", "<i class='material-icons'>list</i>Mostrare"); ?>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header">Servizi<i class="material-icons">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><?php echo Html::link("servizis/aggiungere", "<i class='material-icons'>add</i>Aggiungere"); ?>
+                            </li>
+                            <li><?php echo Html::link("servizis/mostrare", "<i class='material-icons'>list</i>Mostrare"); ?>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header">Slides<i class="material-icons">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><?php echo Html::link("slides/aggiungere", "<i class='material-icons'>add</i>Aggiungere"); ?>
+                            </li>
+                            <li><?php echo Html::link("slides/mostrare", "<i class='material-icons'>list</i>Mostrare"); ?>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li>
+            <?php echo Html::link("auth/logout","<i class=\"material-icons\">power_settings_new</i>Chiudi sessione");?>
+            </li>
+    </ul>
+    <div>
+
+
+    </div>
+
+
+</div>
+
+<main>
+
+    <div class="row">
+        <div class="right-align">
+            <?php echo View::partial("propainter/breadcrumbs", FALSE, (isset($breadcrumbs) ? array("breadcrumbs" =>
+                $breadcrumbs) : null)); ?>
+        </div>
+
+        <div class="menu-side-bar">
+            <a href="#" data-activates="slide-out" class="button-collapse btn-large btn-floating yellow ">
+                <i class="material-icons black-text">menu</i></a>
+        </div>
+    </div>
+    <?php View::content() ?>
+
+
+</main>
+<?php echo View::partial("propainter/scripts"); ?>
+
+<?php echo Tag::js("materialize.min"); ?>
+
+<script>
+
+
+</script>
+
+</body>
+</html>

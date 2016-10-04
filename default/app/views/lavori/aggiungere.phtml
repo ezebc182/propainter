@@ -11,15 +11,14 @@
     <div class="container">
 
         <div class="row">
-            <h3><?php echo $title; ?></h3>
-        </div>
-        <div class="row">
-            <?php View::content()?>
-        </div>
-        <div class="row">
-            <blockquote><h4>Nome e descrizione</h4>
+            <blockquote>
+                <h4><?php echo $title; ?></h4>
             </blockquote>
         </div>
+        <div class="row">
+            <?php View::content() ?>
+        </div>
+
 
         <div class="row">
             <?php echo Form::open(); ?>
@@ -37,11 +36,19 @@
 
         </div>
 
-
+<!--        <div class="row">-->
+<!--            <div class="input-field col s12 m12 l12">-->
+<!---->
+<!--                <div class="chips chips-placeholder"></div>-->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
+<!--        --><?php //echo Form::hidden("lavori.servizi_tags"); ?>
 
         <div class="row center-align">
-            <a href='<?php echo PUBLIC_PATH.$controller_name."/mostrare"?>' class=" btn-large btn-flat">Annullare</a>
-            <?php echo Form::submit("Aggiungere","class='waves-effect waves-light btn-block  
+            <a href='<?php echo PUBLIC_PATH . $controller_name . "/mostrare" ?>'
+               class=" btn-large btn-flat">Annullare</a>
+            <?php echo Form::submit("Aggiungere", "class='waves-effect waves-light btn-block  
             btn-large yellow black-text'"); ?>
         </div>
 

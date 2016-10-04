@@ -18,7 +18,11 @@ class SlidesController extends AppController
         $this->title = "Slides";
         $this->menu = "slides";
         $this->tags = null;
+        View::template("admin");
         $this->slides = (new Slides())->find();
+        $this->breadcrumbs = array(
+            array("link" => "admin/dashboard", "text" => "Dashboard"),
+            array("link" => "slides/mostrare", "text" => "Slides", "active" => true));
     }
 
     public function aggiungere()
@@ -26,7 +30,12 @@ class SlidesController extends AppController
         $this->title = "Slides";
         $this->menu = "slides";
         $this->tags = null;
+        View::template("admin");
         $this->cantidad = (new Slides())->count();
+        $this->breadcrumbs = array(
+            array("link" => "admin/dashboard", "text" => "Dashboard"),
+            array("link" => "slides/mostrare", "text" => "Slides"),
+            array("link" => "slides/aggiungere", "text" => "Aggiungere", "active" => true));
         if (Input::hasPost("slides")) {
             try {
 
@@ -82,13 +91,18 @@ class SlidesController extends AppController
 
     public function modificare($id)
     {
-        $this->title = "Modificare slide ";
         $this->menu = "modificare_slide";
         $this->tags = null;
-
+        View::template("admin");
         $this->slides = (new Slides())->find($id);
         $this->archivos = (new Archivos())->find($this->slides->archivos_id);
+        $this->title = "Modificare il slide: <b>".$this->slides->nome."</b>";
 
+        $this->breadcrumbs = array(
+            array("link" => "admin/dashboard", "text" => "Dashboard"),
+            array("link" => "slides/mostrare", "text" => "Slides"),
+            array("link" => false, "text" => $this->slides->nome),
+            array("link" => "slides/modificare/$id", "text" => "Modificare", "active" => true));
         if (Input::hasPost("slides")) {
 
             $slides = (new Slides(Input::post("slides")));
@@ -121,6 +135,7 @@ class SlidesController extends AppController
 
     public function eliminare($id)
     {
+        View::template("admin");
         $slides = (new Slides())->find($id);
         $slide_old = $slides;
         try {
