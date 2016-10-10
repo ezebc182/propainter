@@ -30,7 +30,7 @@ class Utenti extends ActiveRecord
 
         if($auth->identify()) return true;
         
-        Flash::warning(" Email / Password non correcta.");
+        Flash::warning(" Accesso non valido.");
         return false;
     }
 

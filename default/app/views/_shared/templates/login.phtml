@@ -12,11 +12,6 @@
 <div class="section no-pad-bot scrollspy ">
     <div class="container">
 
-        <div class="row"></div>
-        <div class="row"></div>
-        <div class="row"></div>
-        <div class="row"></div>
-        <div class="row"></div>
         <div class="row">
             <div class="valign-wrapper">
                 <div class="col s12 m4 l4 offset-m4 offset-l4">
@@ -24,27 +19,33 @@
                     <input name="mode" type="hidden" value="auth">
 
                     <div class="row center-align">
-                        <?php echo Html::img("logos/loguito.png", "logo", "class=' responsive-img'"); ?>
+                        <?php echo Html::img("logos/loguito.png", "logo", "class='logo-login responsive-img'"); ?>
+                        <div class="row">
+
+                                <p class="flow-text center-align"><b>PRO-PAINTER</b> | Accesso</p>
+
+                        </div>
                     </div>
                     <div class="row">
                         <div class="input-field">
                             <i class="material-icons prefix">account_circle</i>
-                            <?php echo Form::text("email"); ?>
+                            <?php echo Form::email("email","required"); ?>
 
                             <label for="usuarios_email">Email</label>
                         </div>
                         <div class="input-field">
                             <i class="material-icons prefix">vpn_key</i>
 
-                            <?php echo Form::password("password"); ?>
+                            <?php echo Form::password("password","required"); ?>
                             <label for="usuarios_password">Password</label>
                         </div>
                     </div>
                     <div class="row center-align">
-                        <?php echo Form::submit("Ingresar", "class='btn center waves-effect waves-light btn-block  
+                        <?php echo Form::submit("Accedi", "class='btn center waves-effect waves-light btn-block  
             btn-large yellow black-text'"); ?>
-                        <br><p class="center-align">o</p><br>
-                   <?php echo Html::link("","Retornare al sitio","class= 'btn btn-flat btn-large'");?>
+                        <br>
+                        <p class="center-align">o</p><br>
+                        <?php echo Html::link("", "Indietro", "class= 'btn btn-flat btn-large'"); ?>
                     </div>
 
                     <?php echo Form::close(); ?>

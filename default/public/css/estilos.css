@@ -204,3 +204,10 @@ a.breadcrumb.active{
         margin-top:20%;
     }
 }
+
+.logo-login
+{
+    width: 50%;
+    height:auto;
+    margin-bottom: 5%;
+}
