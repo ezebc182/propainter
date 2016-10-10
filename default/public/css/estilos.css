@@ -179,3 +179,28 @@ a.breadcrumb.active{
     /*height: 75px;*/
     /*text-align: right;*/
 /*}*/
+
+.partners{
+    height:50px;
+    width:auto;
+    box-shadow: inset;
+    background: #fff;
+    /*-webkit-filter: grayscale(100%); !* Chrome, Safari, Opera *!*/
+    /*filter: grayscale(100%);*/
+}
+#swipebox-title {
+
+    display: block!important;
+    width: 25%!important;
+    text-align: justify!important;
+    margin-top: 5%!important;
+    margin-left: 2%!important;
+}
+@media screen and (max-width: 1080px) {
+    #swipebox-title {
+        display: block!important;
+        width: 80%!important;
+        text-align: left!important;
+        margin-top:20%;
+    }
+}

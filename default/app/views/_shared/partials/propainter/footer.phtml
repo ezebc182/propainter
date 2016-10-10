@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="center-align col s6 m6 l6">
-                            <b><?php echo $utenti->nome . " " . $utenti->cognome; ?></b>
+                            <b><?php echo $utenti->cognome . " " . $utenti->nome; ?></b>
                         </div>
                         <div class="right-align col s3 m3 l3">
 
@@ -68,7 +68,7 @@
 
                     <div class="row">
                         <div class="col s12 m12 l12">
-                            <h5 class="white-text  left-align"><?php echo $utenti->nome . " " . $utenti->cognome; ?></h5>
+                            <h5 class="white-text  left-align"><?php echo  $utenti->cognome. " " . $utenti->nome; ?></h5>
                             <p class="white-text text-lighten-4">
 
                                 P. IVA: <?php echo $utenti->p_iva; ?> <br>
@@ -90,6 +90,16 @@
 
 
                     <div class="footer-copyright">
+                        <div class="left">
+                            <?php foreach($prodotti as $prodotto):?>
+
+                            <a href="<?php echo $prodotto->url;?>" target="_blank" title="Visitare il sito">
+                            <?php echo Html::img("prodotti/".Utils::slug($prodotto->nome)."/".
+                                $prodotto->getImmagini($prodotto->id)->nombre,$prodotto->nome,
+                                "class=' partners'");?>
+                            </a>
+                            <?php endforeach;?>
+                        </div>
                         <div class="right">
 
                             <b><?php echo date("Y") ?> </b>&nbsp;&nbsp;

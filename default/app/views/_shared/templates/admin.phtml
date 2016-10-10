@@ -23,6 +23,23 @@ Ci accompagna la passione in quello che facciamo, per questo siamo orgogliosi de
     <meta name="keywords"
           content="propainter,tingteggiature in generale,rivestimenti decorativi,pavimenti continui in resina,strutture in cartongesso,
       rimodellazioni,recupero e restauro strutture,patine,stucco veneziano,progettazione e allestimento stand e show-room">
+    <link rel="apple-touch-icon" sizes="57x57" href='/img/favicon/apple-icon-57x57.png'>
+    <link rel="apple-touch-icon" sizes="60x60" href='/img/favicon/apple-icon-60x60.png'>
+    <link rel="apple-touch-icon" sizes="72x72" href='/img/favicon/apple-icon-72x72.png'>
+    <link rel="apple-touch-icon" sizes="76x76" href='/img/favicon/apple-icon-76x76.png'>
+    <link rel="apple-touch-icon" sizes="114x114" href='/img/favicon/apple-icon-114x114.png'>
+    <link rel="apple-touch-icon" sizes="120x120" href='/img/favicon/apple-icon-120x120.png'>
+    <link rel="apple-touch-icon" sizes="144x144" href='/img/favicon/apple-icon-144x144.png'>
+    <link rel="apple-touch-icon" sizes="152x152" href='/img/favicon/apple-icon-152x152.png'>
+    <link rel="apple-touch-icon" sizes="180x180" href='/img/favicon/apple-icon-180x180.png'>
+    <link rel="icon" type="image/png" sizes="192x192"  href='/img/favicon/android-icon-192x192.png'>
+    <link rel="icon" type="image/png" sizes="32x32" href='/img/favicon/favicon-32x32.png'>
+    <link rel="icon" type="image/png" sizes="96x96" href='/img/favicon/favicon-96x96.png'>
+    <link rel="icon" type="image/png" sizes="16x16" href='/img/favicon/favicon-16x16.png'>
+    <link rel="manifest" href='/img/favicon/manifest.json'>
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <meta name="robots">
     <title><?php echo $title . " | " . Config::get("config.application.name"); ?></title>
 
@@ -44,8 +61,10 @@ Ci accompagna la passione in quello che facciamo, per questo siamo orgogliosi de
                 <?php echo Html::img("logos/logo.png", "", "style='background:#000;' class='background'"); ?>
                 <a href="#!user"><?php echo Html::img("avatares/avatar46.png", "", "class='circle'
                 style='    margin: 0 auto;'"); ?></a>
-                <a href="#!name"><span class="white-text name">Massimiliano Saurin</span></a>
-                <a href="#!email"><span class="white-text email">maxisaurin@propainter.it</span></a>
+                <a href="#!name"><span class="white-text name">
+                        <?php echo $utenti->nome." ".$utenti->cognome;?></span></a>
+                <a href="#!email"><span class="white-text email">
+                        <?php echo $utenti->email;?></span></a>
             </div>
         </li>
         <li>
@@ -53,7 +72,7 @@ Ci accompagna la passione in quello che facciamo, per questo siamo orgogliosi de
         </li>
         <li><?php echo Html::link(FALSE, '<i class="material-icons">developer_board</i>Vedere il sitio', "target='_blank'"); ?>
         </li>
-        <li><a class="waves-effect" href="#!"><i class="material-icons">settings</i>Opzioni personali</a></li>
+
 
         <li>
             <div class="divider"></div>
@@ -127,7 +146,7 @@ Ci accompagna la passione in quello che facciamo, per questo siamo orgogliosi de
             <div class="divider"></div>
         </li>
         <li>
-            <?php echo Html::link("auth/logout","<i class=\"material-icons\">power_settings_new</i>Chiudi sessione");?>
+            <?php echo Html::link("auth/logout","<i class=\"material-icons\">power_settings_new</i>Chiudere sessione");?>
             </li>
     </ul>
     <div>

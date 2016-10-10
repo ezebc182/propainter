@@ -5,7 +5,7 @@
         <?php foreach($slides as $slide):?>
         <li>
            <?php echo Html::img("slides/".
-               $slide->nome.".".$slide->getExtension($slide->id)->extension,$slide->nome,"class=' 
+               Utils::slug($slide->nome).".".$slide->getExtension($slide->id)->extension,$slide->nome,"class=' 
                responsive-img'");?>
 
             <div class="caption left-align carousel-content ">

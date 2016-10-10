@@ -8,7 +8,7 @@
                 <div class="card-panel grey lighten-3">
                     <p class="flow-text ">
 
-                        PRO-PAINTER <br>
+                        <b>PRO-PAINTER</b> <br>
                         E un'impresa giovane, ma e anche il risultato di molti anni di esperienza nel campo delle
                         vernici, delle
                         decorazioni, della progettazione e realizzazione di stand e show-room.
@@ -29,14 +29,14 @@
         </div>
         <div class="row">
             <blockquote>
-                <h4>Prodotti che utilizziamo</h4>
+                <h4>ProPainter raccomanda prodotti</h4>
             </blockquote>
         </div>
         <div class="row">
 
             <?php foreach($prodotti as $prodotto):?>
             <div class="card-panel col s12 m3 l3 ">
-                <a href="<?php echo $prodotto->url;?>" target="_blank" title="Visitare il sitio">
+                <a href="<?php echo $prodotto->url;?>" target="_blank" title="Visitare il sito">
                 <?php echo Html::img("prodotti/".Utils::slug($prodotto->nome)."/".
                     $prodotto->getImmagini($prodotto->id)->nombre,$prodotto->nome,
                     "class=' center-align responsive-img'");?>

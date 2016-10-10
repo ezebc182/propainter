@@ -11,32 +11,44 @@
     </div>
     <div class="row">
         <?php $cards = array(
-            (object)array("nome" => "Informazione personali", "color" => "green", "descrizione" =>
-                "Aggiungere, modificare, mostrare e elimininare informazione personali", "url" => ""),
-            (object)array("nome" => "Slides", "color" => "blue", "descrizione" =>
+            (object)array("nome" => "Informazione personale", "background" => "black", "title_color" => "yellow",
+                "text_color" => "white", "descrizione" =>
+                "Aggiungere, modificare, mostrare e elimininare informazione personale",
+                "url" => "/utenti/modificare/$utenti->id"),
+            (object)array("nome" => "Slides", "background" => "black", "title_color" => "yellow",
+                "text_color" => "white", "descrizione" =>
                 "Aggiungere, modificare, mostrare e elimininare slides", "url" => "/slides/"),
-            (object)array("nome" => "Lavori", "color" => "orange", "descrizione" =>
+            (object)array("nome" => "Lavori", "background" => "black", "title_color" => "yellow",
+                "text_color" => "white", "descrizione" =>
                 "Aggiungere, modificare, mostrare e elimininare lavori", "url" => "/lavori/mostrare"),
-            (object)array("nome" => "Servizi", "color" => "purple", "descrizione" =>
+            (object)array("nome" => "Servizi", "background" => "black", "title_color" => "yellow",
+                "text_color" => "white", "descrizione" =>
                 "Aggiungere, modificare, mostrare e elimininare servizi", "url" => "/servizis/mostrare"),
-            (object)array("nome" => "Prodotti", "color" => "purple", "descrizione" =>
-                "Aggiungere, modificare, mostrare e elimininare prodotti", "url" => "/prodotti/mostrare")
+            (object)array("nome" => "Prodotti", "background" => "black", "title_color" => "yellow",
+                "text_color" => "white", "descrizione" =>
+                "Aggiungere, modificare, mostrare e elimininare prodotti", "url" => "/prodotti/mostrare"),
+            (object)array("nome" => "Email", "background" => "black", "title_color" => "yellow",
+                "text_color" => "white", "descrizione" =>
+                "Accedere al servizio webmail esterno  de PROPAINTER.IT", "target" => "_blank",
+                "url" => "http://webmail.propainter.it/?locale=it")
 
         ); ?>
         <?php foreach ($cards as $card): ?>
             <div class=" col s12 m6 l4 ">
-                <div class="card black hoverable">
+                <div class="card <?php echo $card->background ?> hoverable">
 
                     <div class="card-content">
-                        <span class="card-title yellow-text ">
+                        <span class="card-title <?php echo $card->title_color . "-text"; ?> ">
                             <?php echo $card->nome; ?>
                         </span>
-                        <p class=" white-text"> <?php echo $card->descrizione; ?></p>
+                        <p class=' <?php echo $card->text_color . "-text" ?>'>
+                            <?php echo $card->descrizione; ?></p>
                         <div class=" right-align">
-                        <a href="<?php echo $card->url;?>" class="waves-effect waves-light yellow
+                            <a target="<?php echo (isset($card->target)) ? $card->target : "_parent"; ?>"
+                               href="<?php echo $card->url; ?>" class="waves-effect waves-light yellow
                         btn-floating">
-                            <i class=" black-text material-icons">settings</i>
-                        </a>
+                                <i class=" black-text material-icons">settings</i>
+                            </a>
                         </div>
                     </div>
 

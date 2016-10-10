@@ -13,7 +13,7 @@ View::content()
         <div class="master">
 
             <div class="row">
-                <h3 class=" ">Nostri lavori</h3>
+                <h3 class=" "><?php echo $title;?></h3>
 
             </div>
 
@@ -29,7 +29,7 @@ View::content()
 
                                 <?php $img_principale = $lavoro->getImmaginePrincipale($lavoro->id); ?>
                                 <?php if ($img_principale->nombre != null): ?>
-                                    <?php echo Html::img("../" . $img_principale->ruta . "/" . $img_principale->nombre
+                                    <?php echo Html::img("lavori/" .Utils::slug($lavoro->nome). "/" . $img_principale->nombre
                                         , "", "class=' servizio  center-align responsive-img'"); ?>
                                 <?php else: ?>
                                     <?php echo Html::img("img-not-found.jpg", "", "class='servizio responsive-img'"); ?>
@@ -56,26 +56,27 @@ View::content()
 
             </div>
         </div>
-        <div class="row">
 
-            <a id="btn-back" href="#" class="hidden btn btn-floating blue"><i
-                    class="material-icons">keyboard_backspace</i></a>
-        </div>
         <div class="row detail">
+            <a id="btn-back" href="#" class="left hidden btn btn-floating blue"><i
+                    class="material-icons" title="Ritorno">keyboard_backspace</i></a>
             <?php foreach ($lavori as $lavoro): ?>
                 <div class="hidden" id="detail-<?php echo $lavoro->id; ?>">
-                    <h4><?php echo $lavoro->nome; ?></h4>
+                    <h4 class="center center-align"><?php echo $lavoro->nome; ?></h4>
 
                     <p class="flow-text"><?php echo $lavoro->descrizione; ?></p>
                     <h5>Immagini</h5>
                     <?php foreach ($immagini = $lavoro->getImmagini($lavoro->id) as $item): ?>
                         <div class="col s12 m3 l3">
                             <div class="card-panel center">
+                                <a rel="<?php echo $lavoro->nome;?>" class="swipebox" title="<?php echo
+                                    '<b>'.$item->nome.'</b><br>'.$item->descrizione?>"
+                                   href="<?php echo PUBLIC_PATH . "img/lavori/" . Utils::slug($lavoro->nome)
+                                       . "/" . $item->nombre ?>">
+                                    <?php echo Html::img("lavori/" . Utils::slug($lavoro->nome) . "/" . $item->nombre
+                                        , "", "class='  responsive-img'"); ?>
 
-
-                                <?php echo Html::img("../" . $item->ruta . "/" . $item->nombre
-                                    , "", "class='  responsive-img  materialboxed'
-                        data-caption='$item->descrizione'"); ?>
+                                </a>
 
                             </div>
                         </div>

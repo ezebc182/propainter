@@ -1,0 +1,183 @@
+<div class="section scrollspy" id="utenti">
+    <div class="container">
+        <div class="row">
+            <?php View::content() ?>
+        </div>
+
+        <div class="row">
+            <blockquote>
+                <h4><?php echo $title; ?></h4>
+            </blockquote>
+        </div>
+        <div class="row">
+            <?php echo Form::openMultipart() ?>
+            <div class="col s12 m2 l2">
+                <div class="row">
+                    <div class="card-panel center">
+
+                        <?php echo Html::img("avatares/" . $utenti->avatar, "",
+                            "class='  materialboxed responsive-img'"); ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <a href="#modal-cambio-password" title="Cambiare password"
+                       class="modal-trigger btn btn-floating blue">
+                        <i class="material-icons">vpn_key</i>
+                    </a>
+                    <a href="#!" disabled="disabled" title="Cambiare avatar" class="btn btn-floating orange">
+                        <i class="material-icons">image</i>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col s12 m10 l10">
+                <div class="row">
+                    <div class="col s12 m6 l6">
+
+                        <div class="input-field">
+                            <?php echo Form::text("utenti.nome"); ?>
+                            <label for="utenti_nome">Nome</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l6">
+                        <div class="input-field">
+                            <?php echo Form::text("utenti.cognome"); ?>
+                            <label for="utenti_nome">Cognome</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <div class="input-field">
+                            <?php echo Form::email("utenti.email"); ?>
+                            <label for="utenti_nome">Email (Acceso al sistema)</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l6">
+                        <div class="input-field">
+                            <?php echo Form::email("utenti.email_contatto"); ?>
+                            <label for="utenti_email_contatto">Email contatto</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col s12 m4 l4">
+                        <div class="input-field">
+                            <?php echo Form::text("utenti.p_iva"); ?>
+                            <label for="utenti_p_iva">P. IVA</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m4 l4">
+                        <div class="input-field">
+                            <?php echo Form::text("utenti.pec"); ?>
+                            <label for="utenti_pec">PEC</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m4 l4">
+                        <div class="input-field">
+                            <?php echo Form::text("utenti.cf"); ?>
+                            <label for="utenti_cf">CF</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <div class="input-field">
+                            <?php echo Form::url("utenti.facebook_url", "placeholder='https://'"); ?>
+                            <label for="utenti_facebook_url">URL Facebook</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l6">
+                        <div class="input-field">
+                            <?php echo Form::text("utenti.telefono"); ?>
+                            <label for="utenti_telefono">Telefono</label>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="row center-align">
+            <?php echo Html::link("admin/dashboard/", "Annullare",
+                "class=' btn-large btn-flat'"); ?>
+
+            <?php echo Form::submit("Modificare", "class='waves-effect waves-light btn-block  
+            btn-large yellow black-text'"); ?>
+        </div>
+        <?php echo Form::hidden("utenti.id", FALSE, $utenti->id); ?>
+        <?php echo Form::hidden("utenti.avatar", FALSE, $utenti->avatar); ?>
+        <?php echo Form::close(); ?>
+
+        <div class="modal modal-fixed-footer" id="modal-cambio-password">
+            <div class="content">
+                <div class="modal-content">
+                    <div class="row">
+                        <blockquote>
+                            <h4>Cambiare la password</h4>
+                        </blockquote>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l6">
+                            <div class="card-panel">
+                                <p class="flow-text">
+                                    Si raccomanda che la password contenga almeno 8 caratteri intermezclando maiuscole,
+                                    minuscole, numeri e caratteri speciali @, ! ,#.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            <div class="row">
+
+
+                                <div class="input-field">
+                                    <input type="password" name="utenti[current_password]"
+                                           id="utenti_current_password" class="validate">
+                                    <label id="label_utenti_current_password"
+                                           for="utenti_current_password">Attuale
+                                        password </label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="input-field">
+
+                                    <input type="password" class="validate"
+                                           name="utenti[new_password]" id="utenti_new_password">
+                                    <label id="label_new_password" for="new_password">Nouve password</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field">
+                                    <input type="password" class="validate"
+                                           name="utenti[new_password_confirm]" id="utenti_new_password_confirm">
+
+                                    <label id="label_new_password_confirm" for="new_password_confirm">Riscrivere
+                                        password</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row" id="resultados">
+                        <?php View::content() ?>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!--                --><?php //echo Form::submit("Cambiare","class='btn yellow black-text'");?>
+                    <a href="#!" id="btnCambiarPassword" class=" btn yellow darken-1 ">Cambiare</a>
+
+                    <a href="#!" class="modal-action modal-close btn-flat ">Chiudere</a>
+                </div>
+                <?php echo Form::close() ?>
+            </div>
+        </div>
+
+    </div>
+</div>

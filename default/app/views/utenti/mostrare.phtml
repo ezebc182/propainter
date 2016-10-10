@@ -24,8 +24,8 @@
                     <th data-field="id">#</th>
                     <th data-field="nome">Nome</th>
                     <th data-field="descrizione">Descrizione</th>
-<!--                    <th data-field="pubblicato">Pubblicato</th>-->
-<!--                    <th data-field="ordine">Ordine</th>-->
+                    <th data-field="pubblicato">Pubblicato</th>
+                    <th data-field="ordine">Ordine</th>
                     <th data-field="azioni">Azioni</th>
                 </tr>
                 </thead>
@@ -43,8 +43,8 @@
                                     <?php echo $slide->descrizione ?>
                                 <?php endif ?>
                             </td>
-<!--                            <td>--><?php //echo $slide->pubblicato;?><!--</td>-->
-<!--                            <td>--><?php //echo $slide->ordini;?><!--</td>-->
+                            <td><?php echo $slide->pubblicato;?></td>
+                            <td><?php echo $slide->ordini;?></td>
                             <td>
                                 <a href="#modal-<?php echo $slide->id?>"
                                    class='modal-trigger btn-floating purple' title='Vedere immagine'>
@@ -74,8 +74,8 @@
             <div class="modal-content">
                 <h4><?php echo $item->nome;?></h4>
                 <div class="center-align">
-                    <?php echo Html::img("slides/".Utils::slug($item->nome).".".($item->getExtension($item->id)->extension),
-                        Utils::slug($item->nome)," class='responsive-img'");?>
+                    <?php echo Html::img("slides/".$item->nome.".".($item->getExtension($item->id)->extension),
+                        $item->nome," class='responsive-img'");?>
                 </div>
             </div>
             <div class="modal-footer">

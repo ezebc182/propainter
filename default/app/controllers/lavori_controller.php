@@ -11,7 +11,7 @@ class LavoriController extends AppController
     public function index()
     {
         $this->menu = "lavori";
-        $this->title = "Nostri lavori";
+        $this->title = "I Nostri lavori";
         $this->tags = null;
         $this->lavori = (new Lavori())->find();
         if (Input::isAjax()) {

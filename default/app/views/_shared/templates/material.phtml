@@ -31,7 +31,9 @@
     <?php echo View::partial("propainter/nav", FALSE, array('menu' => $menu)); ?>
     <?php echo View::partial("propainter/scripts"); ?>
 </main>
-<?php echo View::partial("propainter/footer", FALSE, array('tags' => $tags, "utenti" => $utenti)); ?>
+<?php echo View::partial("propainter/footer", FALSE, array('tags' => $tags,
+    "utenti" => $utenti,
+    "prodotti"=>$prodotti)); ?>
 
 </body>
 </html>

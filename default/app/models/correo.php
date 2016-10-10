@@ -30,42 +30,53 @@ class Correo
 
         return $mail;
     }
-    public function inviareEmailAlClienti($mail,$datos)
+
+    public function inviareEmailAlClienti($datos)
     {
-        //$mail = self::_initParams();
+        $mail = self::_initParams();
 
-        $mail->setFrom('non-risposta@propainter.it', 'PRO PAINTER');
-        //$mail->addAddress('info@propainter.com', 'INFO PRO PAINTER');     // Add a recipient
-        $mail->addBCC($datos["email"]);               // Name is optional
+        $mail->setFrom('non-risposta@propainter.it', 'Non risposta | PRO PAINTER');
+        //$mail->addBCC('info@propainter.com', 'info | PRO PAINTER');     // Add a recipient
+        $mail->addAddress($datos["email"], $datos["nombre"]);
+        // Name is optional
 
-        $mail->Subject = '[PROPAINTER-WEB]' . ucfirst($datos["nombre"]).' abbiamo ricevuto la tua email!';
-        $mail->Body = "<h2>Gentile cliente <b>" . ucfirst($datos['nombre']) . "</b></h2>,<br>";
-        $mail->Body .= "abbiamo ricevuto la tua email. <br>";
-        $mail->Body .= "Noi risponderemo prontamente.   <br>";
-        $mail->Body .= "Grazie mille <br>  ";
+        $mail->Subject = '[PROPAINTER-WEB] ' . ucfirst($datos["nombre"]) . ' abbiamo ricevuto la tua email!';
+        $mail->Body = "<h3>Gentile cliente:</h3>";
+        $mail->Body .= "<p>Grazie per il vostro messaggio, verrete ricontattati al piú presto da un nostro responsabile</p> <br>";
         $mail->Body .= "Attentamente<br>";
-        $mail->Body .= "<a href='http://www.propainter.it/'>";
-        $mail->Body .= "<img src='http://www.propainter.it/img/logos/logo-min.png'></a>";
-        $mail->Body .= "Tel: +39.331.795.6936    Email info@propainter.it";
+        $mail->Body .= "<p><b>Massimiliano Edoardo Saurin</b></p>";
+        $mail->Body .= "<p>+39.331.795.6936 - maxsaurin@propainter.it | info@propainter.it</p>";
+        $mail->Body .= "<a href='http://www.propainter.it/'>
+        <img src='http://www.propainter.it/img/logos/logo-min.png'></a>";
+
+
         $mail->AltBody = "Gentile cliente: Abbiamo ricevuto la tua email. Noi risponderemo prontamente. Grazie mille.
         Attentamente, PROPAINTER.";
 
         $mail->send();
     }
+
     public function enviar($datos)
     {
         $mail = self::_initParams();
 
-        $mail->setFrom('non-risposta@propainter.it', 'PRO PAINTER');
-        //$mail->addAddress('info@propainter.com', 'INFO PRO PAINTER');     // Add a recipient
-        $mail->addBCC('eebarcoch@gmail.com');               // Name is optional
+        $mail->setFrom('non-risposta@propainter.it', 'Non risposta | PRO PAINTER');
+        $mail->addAddress('info@propainter.com', 'info | PRO PAINTER');     // Add a recipient
+        //$mail->addBCC('eebarcoch@gmail.com');               // Name is optional
 
         $mail->Subject = '[PROPAINTER-WEB] Nuovo email di ' . ucfirst($datos["nombre"]);
-        $mail->Body = $datos["mensaje"];
-        $mail->AltBody = $datos["mensaje"];
+        $mail->Body = "<h3>Informazione del cliente: </h3><br/>";
+        $mail->Body .="<p><b>Nome: </b>".$datos["nombre"]. "</p>";
+        $mail->Body .="<p><b>Email: </b>".$datos["email"]. "</p>";
+        $mail->Body .="<p><b>Messaggio: </b>".$datos["mensaje"]. "</p>";
+
+        $mail->AltBody ="Nome:".$datos["nombre"];
+        $mail->AltBody .="Email:".$datos["email"];
+        $mail->AltBody .="Messaggio:".$datos["mensaje"];
+        self::inviareEmailAlClienti($datos);
 
         if (!$mail->send()) {
-            self::inviareEmailAlClienti($mail,$datos);
+
             return false;
         } else {
             return true;

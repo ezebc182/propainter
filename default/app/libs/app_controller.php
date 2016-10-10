@@ -25,7 +25,23 @@ class AppController extends Controller
         
 
         $this->utenti = (new Utenti())->getUtenti();
+        $this->prodotti = (new Prodotti())->find();
         View::template("material");
+    }
+    final protected function before_filter()
+    {
+        if(in_array(Router::get("controller"),array("slides","lavori","servizis","prodotti") )){
+            if(!in_array(Router::get("action"),array("index") )){
+                $auth = Auth2::factory("model");
+
+                if($auth->isValid()){
+
+                    View::template("admin");
+                }else{
+                    Redirect::to("login");
+                }
+            }
+        }
     }
 
     final protected function finalize()
