@@ -2,14 +2,16 @@
 
 
 
-Aplicación creada con el framework [KumbiaPHP](http://kumbiaphp.com) 1.0 RC
-Maquetación adaptada de [MaterializeCSS](https://github.com/Dogfalo/materialize)
+Aplicación creada con el framework [KumbiaPHP](http://kumbiaphp.com) 1.0 RC.
+
+Maquetación adaptada de [MaterializeCSS](https://github.com/Dogfalo/materialize).
 
 ## Descripción
 Sistema web que consta con dos partes:
 
-* Pública : En donde se muestra la fachada de la página con sus secciones, imágenes, página de contacto, etc.
-* Privada : En donde se gestiona gran parte de la aplicación al estilo CMS personalizado. El usuario puede gestionar en ella:
+- Pública : En donde se muestra la fachada de la página con sus secciones, imágenes, página de contacto, etc.
+- Privada : En donde se gestiona gran parte de la aplicación al estilo CMS personalizado. El usuario puede gestionar en ella:
+
 1.  Slides 
   - Imagen
   - Titulo
